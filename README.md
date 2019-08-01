@@ -53,10 +53,20 @@ Available options may vary depending on the version. To display all available op
 
 ## Examples
 ```shell
+python molstruct.py --rdfa data.csv"
+```
+Returns simple HTML with added RDFa. Assumes that the column names in CSV file are the default ones.
+
+```shell
+python molstruct.py --microdata -f "formula" data.csv"
+```
+Returns simple HTML with added Microdata. Assumes that the column names in CSV file are the default ones but replaces `molecularformula` by `formula`.
+
+```shell
 python molstruct.py --microdata --column --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv"
 ```
 
-Returns simple HTML with added microdata. When generating a file, only selected columns will be taken into account. A limit of 50 molecules has been specified.
+Returns simple HTML with added Microdata. When generating a file, only selected columns will be taken into account. A limit of 50 molecules has been specified.
 
 ```shell
 python molstruct.py --microdata --column --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
