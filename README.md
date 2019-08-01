@@ -72,7 +72,7 @@ Returns simple HTML with added Microdata. When generating a file, only selected 
 python molstruct.py --microdata --column --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
 ```
 
-Do the same but save results to `output.html`.
+Do the same as example above but save results to `output.html`.
 
 ## Contribution
 
