@@ -53,12 +53,12 @@ Available options may vary depending on the version. To display all available op
 
 ## Examples
 ```shell
-python molstruct.py --rdfa data.csv"
+python molstruct.py --rdfa data.csv
 ```
 Returns simple HTML with added RDFa. Assumes that the column names in CSV file are the default ones.
 
 ```shell
-python molstruct.py --microdata -f "formula" data.csv"
+python molstruct.py --microdata -f "formula" data.csv
 ```
 Returns simple HTML with added Microdata. Assumes that the column names in CSV file are the default ones but replaces `molecularformula` by `formula`.
 
