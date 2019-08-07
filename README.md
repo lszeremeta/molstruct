@@ -60,7 +60,7 @@ Returns simple HTML with added RDFa. Assumes that the column names in CSV file a
 ```shell
 python molstruct.py --microdata -f "formula" data.csv
 ```
-Returns simple HTML with added Microdata. Assumes that the column names in CSV file are the default ones but replaces `molecularformula` by `formula`.
+Returns simple HTML with added Microdata. Assumes that the column names in CSV file are the default ones but replaces default `molecularformula` column name by `formula`.
 
 ```shell
 python molstruct.py --microdata --column --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv"
