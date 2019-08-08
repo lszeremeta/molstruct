@@ -30,6 +30,8 @@ def create_jsonld_output(reader):
             out_str += '  "iupacName" : ' + json.dumps(row.get(IUPACNAME)) + ',\n'
         if row.get(MOLECULARFORMULA):
             out_str += '  "molecularFormula" : ' + json.dumps(row.get(MOLECULARFORMULA)) + ',\n'
+        if row.get(DESCRIPTION):
+            out_str += '  "description" : ' + json.dumps(row.get(DESCRIPTION)) + ',\n'
         out_str = out_str[:-2] + '\n'
         out_str += '  },'
 
@@ -66,6 +68,9 @@ def create_jsonld_output(reader):
     print('    "molecularFormula" : {')
     print('      "@id" : "https://schema.org/molecularFormula"')
     print('    }')
+    print('    "description" : {')
+    print('      "@id" : "https://schema.org/description"')
+    print('    }')
     print('}}')
 
 
@@ -97,6 +102,8 @@ def create_rdfa_output(reader):
             print('      <div property="schema:iupacName">' + html.escape(row.get(IUPACNAME)) + '</div>')
         if row.get(MOLECULARFORMULA):
             print('      <div property="schema:molecularFormula">' + html.escape(row.get(MOLECULARFORMULA)) + '</div>')
+        if row.get(DESCRIPTION):
+            print('      <div property="schema:description">' + html.escape(row.get(DESCRIPTION)) + '</div>')
         print('    </div>')
 
         if i == args.limit:
@@ -135,6 +142,8 @@ def create_microdata_output(reader):
             print('      <div itemprop="iupacName">' + html.escape(row.get(IUPACNAME)) + '</div>')
         if row.get(MOLECULARFORMULA):
             print('      <div itemprop="molecularFormula">' + html.escape(row.get(MOLECULARFORMULA)) + '</div>')
+        if row.get(DESCRIPTION):
+            print('      <div itemprop="description">' + html.escape(row.get(DESCRIPTION)) + '</div>')
         print('    </div>')
 
         if i == args.limit:
@@ -154,7 +163,8 @@ SMILES = 'smiles'
 URL = 'url'
 IUPACNAME = 'iupacname'
 MOLECULARFORMULA = 'molecularformula'
-DEFAULT_COLUMN_NAMES = [ID, NAME, INCHIKEY, INCHI, SMILES, URL, IUPACNAME, MOLECULARFORMULA]
+DESCRIPTION = 'description'
+DEFAULT_COLUMN_NAMES = [ID, NAME, INCHIKEY, INCHI, SMILES, URL, IUPACNAME, MOLECULARFORMULA, DESCRIPTION]
 
 parser = argparse.ArgumentParser(
     description='Converts chemical molecule data CSV files to Structured Data formats - JSON-LD, RDFa and Microdata. '
@@ -180,6 +190,8 @@ parser.add_argument("-u", "--url", type=str, help="url column name (" + URL + " 
 parser.add_argument("-iu", "--iupacname", type=str, help="iupacname column name (" + IUPACNAME + " by default)")
 parser.add_argument("-f", "--molecularformula", type=str,
                     help="molecularformula column name (" + MOLECULARFORMULA + " by default)")
+parser.add_argument("-d", "--description", type=str,
+                    help="description column name (" + DESCRIPTION + " by default)")
 
 parser.add_argument("-c", "--columns",
                     help="Use only columns with renamed names",
