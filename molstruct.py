@@ -67,7 +67,7 @@ def create_jsonld_output(reader):
     print('    },')
     print('    "molecularFormula" : {')
     print('      "@id" : "https://schema.org/molecularFormula"')
-    print('    }')
+    print('    },')
     print('    "description" : {')
     print('      "@id" : "https://schema.org/description"')
     print('    }')
