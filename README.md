@@ -4,7 +4,7 @@ Converts chemical molecule data [Comma Separated Values (CSV)](https://en.wikipe
 CSV columns: `id`, `name`, `inchikey`, `inchi`, `smiles`, `url`, `iupacname`, `molecularformula` and `description`. Written in [Python](https://www.python.org/) 3. Works from CLI.
 
 ## What are structured data?
-Structured data are additional data placed on websites. They are not visible to ordinary internet users, but can be easily processed by machines. There are 3 formats that we can use to save structured data - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://www.w3.org/TR/microdata/). This tool supports [RDFa](http://rdfa.info/) and [Microdata](https://www.w3.org/TR/microdata/) formats, and use [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) type.
+Structured data are additional data placed on websites. They are not visible to ordinary internet users, but can be easily processed by machines. There are 3 formats that we can use to save structured data - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://www.w3.org/TR/microdata/). Molstruct supports them all and use [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) type.
 
 ## Where to find a CSV file with molecule data?
 There are many possibilities. The easiest way is to download a CSV file from one of the chemical databases, e.g. [DrugBank](https://www.drugbank.ca/releases/latest#open-data). You can also create the CSV file yourself.
