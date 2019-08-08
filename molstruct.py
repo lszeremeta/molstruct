@@ -78,12 +78,12 @@ def create_jsonld_output(reader):
 
 def create_rdfa_output(reader):
     i = 1
-    print('<!DOCTYPE html>')
-    print('<html lang="en">')
-    print('  <head>')
-    print('    <title>Example Document</title>')
-    print('  </head>')
-    print('  <body vocab="http://schema.org/">')
+    print('''<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Example Document</title>
+  </head>
+  <body vocab="http://schema.org/">''')
     for row in reader:
         print('    <div typeof="schema:MolecularEntity" about="http://example.org/me' + str(i) + '">')
         if row.get(ID):
@@ -118,12 +118,12 @@ def create_rdfa_output(reader):
 
 def create_microdata_output(reader):
     i = 1
-    print('<!DOCTYPE html>')
-    print('<html lang="en">')
-    print('  <head>')
-    print('    <title>Example Document</title>')
-    print('  </head>')
-    print('  <body>')
+    print('''<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Example Document</title>
+  </head>
+  <body>''')
     for row in reader:
         print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="http://example.org/me' + str(
             i) + '">')
