@@ -1,6 +1,6 @@
 # molstruct
 
-Converts chemical molecule data [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files to structured data formats - [RDFa](http://rdfa.info/) and [Microdata](https://schema.org/docs/gs.html). Supported
+Converts chemical molecule data [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files to structured data formats - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://schema.org/docs/gs.html). Supported
 CSV columns: `id`, `name`, `inchikey`, `inchi`, `smiles`, `url`, `iupacname` and `molecularformula`. Written in [Python](https://www.python.org/) 3. Works from CLI.
 
 ## What are structured data?
@@ -12,10 +12,10 @@ There are many possibilities. The easiest way is to download a CSV file from one
 ## Usage
 
 ```shell
-usage: molstruct.py [-h] (-r | -m) [-i ID] [-n NAME] [-ink INCHIKEY] [-in INCHI]
-                 [-s SMILES] [-u URL] [-iu IUPACNAME] [-f MOLECULARFORMULA]
-                 [-c] [-l LIMIT]
-                 file
+usage: molstruct.py [-h] (-j | -r | -m) [-i ID] [-n NAME] [-ink INCHIKEY]
+                    [-in INCHI] [-s SMILES] [-u URL] [-iu IUPACNAME]
+                    [-f MOLECULARFORMULA] [-c] [-l LIMIT]
+                    file
 ```
 
 ### Positional arguments
@@ -27,7 +27,8 @@ usage: molstruct.py [-h] (-r | -m) [-i ID] [-n NAME] [-ink INCHIKEY] [-in INCHI]
 ### Optional arguments
 
 ```shell
-  -h, --help            show help message and exit
+  -h, --help            show this help message and exit
+  -j, --jsonld          JSON-LD output
   -r, --rdfa            RDFa output
   -m, --microdata       Microdata output
   -i ID, --id ID        identifier column name (id by default)

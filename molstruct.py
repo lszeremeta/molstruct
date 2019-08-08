@@ -2,6 +2,71 @@
 import argparse
 import csv
 import html
+import json
+
+
+def create_jsonld_output(reader):
+    i = 1
+
+    out_str = '{\n'
+    out_str += '  "@graph" : [\n'
+    for row in reader:
+        out_str += '  {\n'
+        out_str += '  "@id" : "http://example.org/me' + str(i) + '",\n'
+        out_str += '  "@type" : "https://schema.org/MolecularEntity",\n'
+        if row.get(ID):
+            out_str += '  "identifier" : ' + json.dumps(row.get(ID)) + ',\n'
+        if row.get(NAME):
+            out_str += '  "name" : ' + json.dumps(row.get(NAME)) + ',\n'
+        if row.get(INCHIKEY):
+            out_str += '  "inChIKey" : ' + json.dumps(row.get(INCHIKEY)) + ',\n'
+        if row.get(INCHI):
+            out_str += '  "inChI" : ' + json.dumps(row.get(INCHI)) + ',\n'
+        if row.get(SMILES):
+            out_str += '  "smiles" : ' + json.dumps(row.get(SMILES)) + ',\n'
+        if row.get(URL):
+            out_str += '  "url" : ' + json.dumps(row.get(URL)) + ',\n'
+        if row.get(IUPACNAME):
+            out_str += '  "iupacName" : ' + json.dumps(row.get(IUPACNAME)) + ',\n'
+        if row.get(MOLECULARFORMULA):
+            out_str += '  "molecularFormula" : ' + json.dumps(row.get(MOLECULARFORMULA)) + ',\n'
+        out_str = out_str[:-2] + '\n'
+        out_str += '  },'
+
+        if i == args.limit:
+            break
+
+        i = i + 1
+    out_str = out_str[:-1]
+    print(out_str)
+
+    print('],')
+    print('  "@context" : {')
+    print('    "identifier" : {')
+    print('      "@id" : "https://schema.org/identifier"')
+    print('    },')
+    print('    "name" : {')
+    print('      "@id" : "https://schema.org/name"')
+    print('    },')
+    print('    "inChIKey" : {')
+    print('      "@id" : "https://schema.org/inChIKey"')
+    print('    },')
+    print('    "inChI" : {')
+    print('      "@id" : "https://schema.org/inChI"')
+    print('    },')
+    print('    "smiles" : {')
+    print('      "@id" : "https://schema.org/smiles"')
+    print('    },')
+    print('    "url" : {')
+    print('      "@id" : "https://schema.org/url"')
+    print('    },')
+    print('    "iupacName" : {')
+    print('      "@id" : "https://schema.org/iupacName"')
+    print('    },')
+    print('    "molecularFormula" : {')
+    print('      "@id" : "https://schema.org/molecularFormula"')
+    print('    }')
+    print('}}')
 
 
 def create_rdfa_output(reader):
@@ -92,12 +157,14 @@ MOLECULARFORMULA = 'molecularformula'
 DEFAULT_COLUMN_NAMES = [ID, NAME, INCHIKEY, INCHI, SMILES, URL, IUPACNAME, MOLECULARFORMULA]
 
 parser = argparse.ArgumentParser(
-    description='Converts chemical molecule data CSV files to Structured Data formats - RDFa and Microdata. '
+    description='Converts chemical molecule data CSV files to Structured Data formats - JSON-LD, RDFa and Microdata. '
                 'Supported CSV columns: ' +
                 str(DEFAULT_COLUMN_NAMES))
 parser.add_argument('file', type=str,
                     help='CSV file with molecule data to convert')
 formats_group = parser.add_mutually_exclusive_group(required=True)
+formats_group.add_argument("-j", "--jsonld", help="JSON-LD output",
+                           action="store_true")
 formats_group.add_argument("-r", "--rdfa", help="RDFa output",
                            action="store_true")
 formats_group.add_argument("-m", "--microdata", help="Microdata output",
@@ -144,7 +211,9 @@ if args.file:
     with open(args.file, 'r') as csvfile:
         try:
             reader = csv.DictReader(csvfile)
-            if args.rdfa:
+            if args.jsonld:
+                create_jsonld_output(reader)
+            elif args.rdfa:
                 create_rdfa_output(reader)
             elif args.microdata:
                 create_microdata_output(reader)
