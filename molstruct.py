@@ -40,38 +40,40 @@ def create_jsonld_output(reader):
 
         i = i + 1
     out_str = out_str[:-1]
-    print(out_str)
 
-    print('],')
-    print('  "@context" : {')
-    print('    "identifier" : {')
-    print('      "@id" : "https://schema.org/identifier"')
-    print('    },')
-    print('    "name" : {')
-    print('      "@id" : "https://schema.org/name"')
-    print('    },')
-    print('    "inChIKey" : {')
-    print('      "@id" : "https://schema.org/inChIKey"')
-    print('    },')
-    print('    "inChI" : {')
-    print('      "@id" : "https://schema.org/inChI"')
-    print('    },')
-    print('    "smiles" : {')
-    print('      "@id" : "https://schema.org/smiles"')
-    print('    },')
-    print('    "url" : {')
-    print('      "@id" : "https://schema.org/url"')
-    print('    },')
-    print('    "iupacName" : {')
-    print('      "@id" : "https://schema.org/iupacName"')
-    print('    },')
-    print('    "molecularFormula" : {')
-    print('      "@id" : "https://schema.org/molecularFormula"')
-    print('    },')
-    print('    "description" : {')
-    print('      "@id" : "https://schema.org/description"')
-    print('    }')
-    print('}}')
+    print(out_str + ''' ],
+  "@context" : {
+    "identifier" : {
+      "@id" : "https://schema.org/identifier"
+    },
+    "name" : {
+      "@id" : "https://schema.org/name"
+    },
+    "inChIKey" : {
+      "@id" : "https://schema.org/inChIKey"
+    },
+    "inChI" : {
+      "@id" : "https://schema.org/inChI"
+    },
+    "smiles" : {
+      "@id" : "https://schema.org/smiles"
+    },
+    "url" : {
+      "@id" : "https://schema.org/url"
+    },
+    "iupacName" : {
+      "@id" : "https://schema.org/iupacName"
+    },
+    "molecularFormula" : {
+      "@id" : "https://schema.org/molecularFormula"
+    },
+    "description" : {
+      "@id" : "https://schema.org/description"
+    },
+    "schema" : "https://schema.org/",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  }
+}''')
 
 
 def create_rdfa_output(reader):
