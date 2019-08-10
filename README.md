@@ -12,9 +12,10 @@ There are many possibilities. The easiest way is to download a CSV file from one
 ## Usage
 
 ```shell
-usage: molstruct.py [-h] (-j | -r | -m) [-i ID] [-n NAME] [-ink INCHIKEY]
-                    [-in INCHI] [-s SMILES] [-u URL] [-iu IUPACNAME]
-                    [-f MOLECULARFORMULA] [-d DESCRIPTION] [-c] [-l LIMIT]
+usage: molstruct.py [-h] (-jh | -j | -r | -m) [-i ID] [-n NAME]
+                    [-ink INCHIKEY] [-in INCHI] [-s SMILES] [-u URL]
+                    [-iu IUPACNAME] [-f MOLECULARFORMULA] [-d DESCRIPTION]
+                    [-c] [-l LIMIT]
                     file
 ```
 
@@ -28,6 +29,7 @@ usage: molstruct.py [-h] (-j | -r | -m) [-i ID] [-n NAME] [-ink INCHIKEY]
 
 ```shell
   -h, --help            show this help message and exit
+  -jh, --jsonldhtml     JSON-LD with HTML output
   -j, --jsonld          JSON-LD output
   -r, --rdfa            RDFa output
   -m, --microdata       Microdata output

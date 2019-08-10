@@ -98,8 +98,8 @@ def create_rdfa_output(reader):
             print('      <div property="schema:smiles">' + html.escape(row.get(SMILES)) + '</div>')
         if row.get(URL):
             print(
-                '      <a rel="schema:url" href="' + html.escape(row.get(URL)) + '">' + html.escape(
-                    row.get(URL)) + '</a>')
+                    '      <a rel="schema:url" href="' + html.escape(row.get(URL)) + '">' + html.escape(
+                row.get(URL)) + '</a>')
         if row.get(IUPACNAME):
             print('      <div property="schema:iupacName">' + html.escape(row.get(IUPACNAME)) + '</div>')
         if row.get(MOLECULARFORMULA):
@@ -175,6 +175,8 @@ parser = argparse.ArgumentParser(
 parser.add_argument('file', type=str,
                     help='CSV file with molecule data to convert')
 formats_group = parser.add_mutually_exclusive_group(required=True)
+formats_group.add_argument("-jh", "--jsonldhtml", help="JSON-LD with HTML output",
+                           action="store_true")
 formats_group.add_argument("-j", "--jsonld", help="JSON-LD output",
                            action="store_true")
 formats_group.add_argument("-r", "--rdfa", help="RDFa output",
@@ -225,7 +227,18 @@ if args.file:
     with open(args.file, 'r') as csvfile:
         try:
             reader = csv.DictReader(csvfile)
-            if args.jsonld:
+            if args.jsonldhtml:
+                print('''<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Example Document</title>
+    <script type="application/ld+json">''')
+                create_jsonld_output(reader)
+                print('''    </script>
+  </head>
+</html>
+                ''')
+            elif args.jsonld:
                 create_jsonld_output(reader)
             elif args.rdfa:
                 create_rdfa_output(reader)
