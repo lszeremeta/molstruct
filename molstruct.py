@@ -305,7 +305,7 @@ args = parser.parse_args()
 
 # replace default column names
 if args.identifier or args.columns:
-    ID = args.identifier
+    IDENTIFIER = args.identifier
 if args.name or args.columns:
     NAME = args.name
 if args.inChIKey or args.columns:
