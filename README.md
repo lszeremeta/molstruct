@@ -92,13 +92,13 @@ python molstruct.py --microdata -f "formula" data.csv
 Returns simple HTML with added Microdata. Assumes that the column names in CSV file are the default ones but replaces default `molecularformula` column name by `formula`.
 
 ```shell
-python molstruct.py --microdata --column --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv"
+python molstruct.py --microdata --columns --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv"
 ```
 
 Returns simple HTML with added Microdata. When generating a file, only selected columns will be taken into account. A limit of 50 molecules has been specified.
 
 ```shell
-python molstruct.py --microdata --column --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
+python molstruct.py --microdata --columns --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
 ```
 
 Do the same as example above but save results to `output.html`.
