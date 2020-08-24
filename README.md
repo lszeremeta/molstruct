@@ -102,3 +102,10 @@ Would you like to improve this project? Great! We are waiting for your help and 
 ## License
 
 Distributed under [MIT license](https://github.com/lszeremeta/molstruct/blob/master/LICENSE).
+
+## See also
+
+These projects can also be useful:
+
+* [SDFEater](https://github.com/lszeremeta/SDFEater) - Always hungry SDF chemical file format parser with many output formats
+* [MEgen](https://github.com/domel/MEgen) - Convenient online form to generate structured data about molecules
