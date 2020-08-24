@@ -12,14 +12,13 @@ There are many possibilities. The easiest way is to download a CSV file from one
 ## Usage
 
 ```shell
-usage: molstruct.py [-h] (-jh | -j | -r | -m) [-i IDENTIFIER] [-n NAME]
-                    [-ink INCHIKEY] [-in INCHI] [-s SMILES] [-u URL]
-                    [-iu IUPACNAME] [-f MOLECULARFORMULA] [-w MOLECULARWEIGHT]
-                    [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
-                    [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE]
-                    [-at ADDITIONALTYPE] [-an ALTERNATENAME] [-sa SAMEAS] [-c]
-                    [-l LIMIT]
-                    file
+usage: molstruct [-h] (-jh | -j | -r | -m) [-i IDENTIFIER] [-n NAME] [-ink INCHIKEY]
+                 [-in INCHI] [-s SMILES] [-u URL] [-iu IUPACNAME]
+                 [-f MOLECULARFORMULA] [-w MOLECULARWEIGHT]
+                 [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
+                 [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-at ADDITIONALTYPE]
+                 [-an ALTERNATENAME] [-sa SAMEAS] [-c] [-l LIMIT]
+                 file
 ```
 
 ### Positional arguments
@@ -82,23 +81,23 @@ Available options may vary depending on the version. To display all available op
 
 ## Examples
 ```shell
-python molstruct.py --rdfa data.csv
+molstruct --rdfa data.csv
 ```
 Returns simple HTML with added RDFa. Assumes that the column names in CSV file are the default ones.
 
 ```shell
-python molstruct.py --microdata -f "formula" data.csv
+molstruct --microdata -f "formula" data.csv
 ```
 Returns simple HTML with added Microdata. Assumes that the column names in CSV file are the default ones but replaces default `molecularformula` column name by `formula`.
 
 ```shell
-python molstruct.py --microdata --columns --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv"
+molstruct --microdata --columns --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv"
 ```
 
 Returns simple HTML with added Microdata. When generating a file, only selected columns will be taken into account. A limit of 50 molecules has been specified.
 
 ```shell
-python molstruct.py --microdata --columns --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
+molstruct --microdata --columns --id "CAS" --name "Common name" --inchikey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
 ```
 
 Do the same as example above but save results to `output.html`.
