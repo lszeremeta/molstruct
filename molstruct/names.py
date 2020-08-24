@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 IDENTIFIER = 'identifier'
 NAME = 'name'
 INCHIKEY = 'inChIKey'
