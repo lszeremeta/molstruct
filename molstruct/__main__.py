@@ -2,7 +2,8 @@
 import argparse
 import csv
 
-from molstruct.outputs import *
+import molstruct.outputs as o
+import molstruct.names as n
 
 
 def main():
@@ -99,13 +100,13 @@ def main():
             try:
                 reader = csv.DictReader(csvfile)
                 if args.jsonldhtml:
-                    create_jsonldhtml_output(reader, args.limit)
+                    o.create_jsonldhtml_output(reader, args.limit)
                 elif args.jsonld:
-                    create_jsonld_output(reader, args.limit)
+                    o.create_jsonld_output(reader, args.limit)
                 elif args.rdfa:
-                    create_rdfa_output(reader, args.limit)
+                    o.create_rdfa_output(reader, args.limit)
                 elif args.microdata:
-                    create_microdata_output(reader, args.limit)
+                    o.create_microdata_output(reader, args.limit)
             except Exception as e:
                 print("Error:", e)
                 exit()
