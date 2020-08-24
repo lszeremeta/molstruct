@@ -98,16 +98,7 @@ def main():
             try:
                 reader = csv.DictReader(csvfile)
                 if args.jsonldhtml:
-                    print('''<!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <title>Example Document</title>
-        <script type="application/ld+json">''')
-                    create_jsonld_output(reader, args.limit)
-                    print('''    </script>
-      </head>
-    </html>
-                    ''')
+                    create_jsonldhtml_output(reader, args.limit)
                 elif args.jsonld:
                     create_jsonld_output(reader, args.limit)
                 elif args.rdfa:

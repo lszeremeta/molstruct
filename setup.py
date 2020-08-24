@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="molstruct", # Replace with your own username
+    name="molstruct",  # Replace with your own username
     version="1.0.0",
     author="Łukasz Szeremeta",
     author_email="l.szeremeta.dev@gmail.com",

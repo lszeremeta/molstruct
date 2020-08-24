@@ -4,6 +4,19 @@ import json
 import molstruct.names as n
 
 
+def create_jsonldhtml_output(reader, limit):
+    print('''<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <title>Example Document</title>
+        <script type="application/ld+json">''')
+    create_jsonld_output(reader, limit)
+    print('''    </script>
+      </head>
+    </html>
+                    ''')
+
+
 def create_jsonld_output(reader, limit):
     i = 1
 
