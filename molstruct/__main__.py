@@ -2,8 +2,8 @@
 import argparse
 import csv
 
-import molstruct.outputs as o
 import molstruct.names as n
+import molstruct.outputs as o
 
 
 def main():
