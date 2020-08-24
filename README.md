@@ -15,7 +15,6 @@ You can install the Molstruct from [PyPI](https://pypi.org/project/molstruct/):
 
     pip install molstruct
 
-
 Python 3.2 and above are supported. No additional dependencies are required.
 
 ## Usage
