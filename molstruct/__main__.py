@@ -96,8 +96,8 @@ def main():
 
     # read csv file and generate outputs
     if args.file:
-        with open(args.file, 'r') as csvfile:
-            try:
+        try:
+            with open(args.file, 'r') as csvfile:
                 reader = csv.DictReader(csvfile)
                 if args.jsonldhtml:
                     o.create_jsonldhtml_output(reader, args.limit)
@@ -107,9 +107,9 @@ def main():
                     o.create_rdfa_output(reader, args.limit)
                 elif args.microdata:
                     o.create_microdata_output(reader, args.limit)
-            except Exception as e:
-                print("Error:", e)
-                exit()
+        except Exception as e:
+            print("Error:", e)
+            exit()
 
 
 if __name__ == "__main__":
