@@ -1,5 +1,7 @@
 # <img src="https://raw.githubusercontent.com/lszeremeta/molstruct/master/logo/molstruct.png" alt="Molstruct logo" width="300">
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cc0d892a36304a00a965ff44390d6bde)](https://app.codacy.com/manual/lszeremeta/molstruct?utm_source=github.com&utm_medium=referral&utm_content=lszeremeta/molstruct&utm_campaign=Badge_Grade_Dashboard)
+
 Converts chemical molecule data [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files to structured data formats - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://schema.org/docs/gs.html). Supported
 CSV columns: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `additionalType`, `alternateName` and `sameAs`.  Works from CLI on Python 3.2 and above. Molstruct is lightweight. No additional dependencies are required.
 
