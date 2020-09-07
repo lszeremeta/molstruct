@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import argparse
 import csv
+import sys
 
 import molstruct.names as n
 import molstruct.outputs as o
@@ -108,7 +109,7 @@ def main():
                 elif args.microdata:
                     o.create_microdata_output(reader, args.limit)
         except Exception as e:
-            print("Error:", e)
+            print("Error:", e, file=sys.stderr)
             exit()
 
 
