@@ -112,4 +112,4 @@ Distributed under [MIT license](https://github.com/lszeremeta/molstruct/blob/mas
 These projects can also be useful:
 
 * [SDFEater](https://github.com/lszeremeta/SDFEater) - Always hungry SDF chemical file format parser with many output formats
-* [MEgen](https://github.com/domel/MEgen) - Convenient online form to generate structured data about molecules
+* [MEgen](https://github.com/lszeremeta/MEgen) - Convenient online form to generate structured data about molecules
