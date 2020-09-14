@@ -12,10 +12,9 @@ def create_jsonldhtml_output(reader, limit):
         <title>Example Document</title>
         <script type="application/ld+json">''')
     create_jsonld_output(reader, limit)
-    print('''    </script>
+    print('''        </script>
       </head>
-    </html>
-                    ''')
+    </html>''')
 
 
 def create_jsonld_output(reader, limit):
