@@ -23,7 +23,7 @@ Python 3.2 and above are supported. No additional dependencies are required.
 
 ## Usage
 
-    usage: molstruct [-h] (-jh | -j | -r | -m) [-i IDENTIFIER] [-n NAME] [-ink INCHIKEY]
+    usage: molstruct [-h] [--version] (-jh | -j | -r | -m) [-i IDENTIFIER] [-n NAME] [-ink INCHIKEY]
                      [-in INCHI] [-s SMILES] [-u URL] [-iu IUPACNAME]
                      [-f MOLECULARFORMULA] [-w MOLECULARWEIGHT]
                      [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
@@ -38,6 +38,7 @@ Python 3.2 and above are supported. No additional dependencies are required.
 ### Optional arguments
 
       -h, --help            show this help message and exit
+      --version             show program version and exit
       -jh, --jsonldhtml     JSON-LD with HTML output
       -j, --jsonld          JSON-LD output
       -r, --rdfa            RDFa output

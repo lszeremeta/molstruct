@@ -5,6 +5,7 @@ import sys
 
 import molstruct.names as n
 import molstruct.outputs as o
+from molstruct import __version__
 
 
 def main():
@@ -12,6 +13,7 @@ def main():
         description='Converts chemical molecule data CSV files to Structured Data formats - JSON-LD, RDFa and '
                     'Microdata. Supported CSV columns: ' +
                     str(n.DEFAULT_COLUMN_NAMES))
+    parser.add_argument("--version", help='show program version and exit', action="version", version=__version__)
     parser.add_argument('file', type=str,
                         help='CSV file with molecule data to convert')
     formats_group = parser.add_mutually_exclusive_group(required=True)
