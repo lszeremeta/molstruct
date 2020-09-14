@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="molstruct",  # Replace with your own username
-    version="1.0.1",
+    version="1.0.2",
     author="Łukasz Szeremeta",
     author_email="l.szeremeta.dev@gmail.com",
     license="MIT",
