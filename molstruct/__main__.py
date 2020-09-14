@@ -16,15 +16,8 @@ def main():
     parser.add_argument("--version", help='show program version and exit', action="version", version=__version__)
     parser.add_argument('file', type=str,
                         help='CSV file with molecule data to convert')
-    formats_group = parser.add_mutually_exclusive_group(required=True)
-    formats_group.add_argument("-jh", "--jsonldhtml", help="JSON-LD with HTML output",
-                               action="store_true")
-    formats_group.add_argument("-j", "--jsonld", help="JSON-LD output",
-                               action="store_true")
-    formats_group.add_argument("-r", "--rdfa", help="RDFa output",
-                               action="store_true")
-    formats_group.add_argument("-m", "--microdata", help="Microdata output",
-                               action="store_true")
+    parser.add_argument("-f", "--format", choices=['jsonldhtml', 'jsonld', 'rdfa', 'microdata'], help="output format",
+                        required=True)
 
     # optional column names changes
     parser.add_argument("-i", "--identifier", type=str,
@@ -37,7 +30,7 @@ def main():
     parser.add_argument("-u", "--url", type=str, help="url column name (" + n.URL + " by default), URL type")
     parser.add_argument("-iu", "--iupacName", type=str,
                         help="iupacName column name (" + n.IUPAC_NAME + " by default), Text")
-    parser.add_argument("-f", "--molecularFormula", type=str,
+    parser.add_argument("-mf", "--molecularFormula", type=str,
                         help="molecularFormula column name (" + n.MOLECULAR_FORMULA + " by default), Text")
     parser.add_argument("-w", "--molecularWeight", type=str,
                         help="molecularWeight column name (" + n.MOLECULAR_WEIGHT + " by default), Mass e.g. 0.01 mg)")
@@ -102,13 +95,13 @@ def main():
         try:
             with open(args.file, 'r') as csvfile:
                 reader = csv.DictReader(csvfile)
-                if args.jsonldhtml:
+                if args.format == 'jsonldhtml':
                     o.create_jsonldhtml_output(reader, args.limit)
-                elif args.jsonld:
+                elif args.format == 'jsonld':
                     o.create_jsonld_output(reader, args.limit)
-                elif args.rdfa:
+                elif args.format == 'rdfa':
                     o.create_rdfa_output(reader, args.limit)
-                elif args.microdata:
+                elif args.format == 'microdata':
                     o.create_microdata_output(reader, args.limit)
         except Exception as e:
             print("Error:", e, file=sys.stderr)

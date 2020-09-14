@@ -23,12 +23,13 @@ Python 3.2 and above are supported. No additional dependencies are required.
 
 ## Usage
 
-    usage: molstruct [-h] [--version] (-jh | -j | -r | -m) [-i IDENTIFIER] [-n NAME] [-ink INCHIKEY]
-                     [-in INCHI] [-s SMILES] [-u URL] [-iu IUPACNAME]
-                     [-f MOLECULARFORMULA] [-w MOLECULARWEIGHT]
-                     [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
-                     [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-at ADDITIONALTYPE]
-                     [-an ALTERNATENAME] [-sa SAMEAS] [-c] [-l LIMIT]
+    usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata}
+                     [-i IDENTIFIER] [-n NAME] [-ink INCHIKEY] [-in INCHI]
+                     [-s SMILES] [-u URL] [-iu IUPACNAME] [-mf MOLECULARFORMULA]
+                     [-w MOLECULARWEIGHT] [-mw MONOISOTOPICMOLECULARWEIGHT]
+                     [-d DESCRIPTION] [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE]
+                     [-at ADDITIONALTYPE] [-an ALTERNATENAME] [-sa SAMEAS] [-c]
+                     [-l LIMIT]
                      file
 
 ### Positional arguments
@@ -39,10 +40,8 @@ Python 3.2 and above are supported. No additional dependencies are required.
 
       -h, --help            show this help message and exit
       --version             show program version and exit
-      -jh, --jsonldhtml     JSON-LD with HTML output
-      -j, --jsonld          JSON-LD output
-      -r, --rdfa            RDFa output
-      -m, --microdata       Microdata output
+      -f {jsonldhtml,jsonld,rdfa,microdata}, --format {jsonldhtml,jsonld,rdfa,microdata}
+                            output format
       -i IDENTIFIER, --identifier IDENTIFIER
                             identifier column name (identifier by default), Text
       -n NAME, --name NAME  name column name (name by default), Text
@@ -55,7 +54,7 @@ Python 3.2 and above are supported. No additional dependencies are required.
       -u URL, --url URL     url column name (url by default), URL type
       -iu IUPACNAME, --iupacName IUPACNAME
                             iupacName column name (iupacName by default), Text
-      -f MOLECULARFORMULA, --molecularFormula MOLECULARFORMULA
+      -mf MOLECULARFORMULA, --molecularFormula MOLECULARFORMULA
                             molecularFormula column name (molecularFormula by
                             default), Text
       -w MOLECULARWEIGHT, --molecularWeight MOLECULARWEIGHT
@@ -88,16 +87,16 @@ Available options may vary depending on the version. To display all available op
 
 ## Examples
 
-    molstruct --rdfa data.csv
+    molstruct -f rdfa data.csv
 Returns simple HTML with added RDFa. Assumes that the column names in CSV file are the default ones.
 
-    molstruct --microdata -f "formula" data.csv
+    molstruct -f microdata -mf "formula" data.csv
 Returns simple HTML with added Microdata. Assumes that the column names in CSV file are the default ones but replaces default `molecularformula` column name by `formula`.
 
-    molstruct --microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv"
+    molstruct -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv"
 Returns simple HTML with added Microdata. When generating a file, only selected columns will be taken into account. A limit of 50 molecules has been specified.
 
-    molstruct --microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
+    molstruct -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
 Do the same as example above but save results to `output.html`.
 
 ## Contribution
