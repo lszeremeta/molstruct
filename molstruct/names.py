@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+
+# default base URL of molecule
+BASE_URL_MOLECULE = 'http://example.com/molecule/'
+
+# default column names
 IDENTIFIER = 'identifier'
 NAME = 'name'
 INCHIKEY = 'inChIKey'

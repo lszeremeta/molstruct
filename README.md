@@ -23,18 +23,17 @@ Python 3.2 and above are supported. No additional dependencies are required.
 
 ## Usage
 
-    usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata}
-                     [-i IDENTIFIER] [-n NAME] [-ink INCHIKEY] [-in INCHI]
-                     [-s SMILES] [-u URL] [-iu IUPACNAME] [-mf MOLECULARFORMULA]
-                     [-w MOLECULARWEIGHT] [-mw MONOISOTOPICMOLECULARWEIGHT]
-                     [-d DESCRIPTION] [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE]
-                     [-at ADDITIONALTYPE] [-an ALTERNATENAME] [-sa SAMEAS] [-c]
-                     [-l LIMIT]
+    usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata} [-b BASEURL]
+                     [-i IDENTIFIER] [-n NAME] [-ink INCHIKEY] [-in INCHI] [-s SMILES]
+                     [-u URL] [-iu IUPACNAME] [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
+                     [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
+                     [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-at ADDITIONALTYPE]
+                     [-an ALTERNATENAME] [-sa SAMEAS] [-c] [-l LIMIT]
                      file
 
 ### Positional arguments
 
-    file                  CSV file with molecule data to convert
+      file                  CSV file with molecule data to convert
 
 ### Optional arguments
 
@@ -42,6 +41,9 @@ Python 3.2 and above are supported. No additional dependencies are required.
       --version             show program version and exit
       -f {jsonldhtml,jsonld,rdfa,microdata}, --format {jsonldhtml,jsonld,rdfa,microdata}
                             output format
+      -b BASEURL, --baseURL BASEURL
+                            base URL of molecule for generators
+                            (http://example.com/molecule/ by default)
       -i IDENTIFIER, --identifier IDENTIFIER
                             identifier column name (identifier by default), Text
       -n NAME, --name NAME  name column name (name by default), Text
@@ -55,15 +57,14 @@ Python 3.2 and above are supported. No additional dependencies are required.
       -iu IUPACNAME, --iupacName IUPACNAME
                             iupacName column name (iupacName by default), Text
       -mf MOLECULARFORMULA, --molecularFormula MOLECULARFORMULA
-                            molecularFormula column name (molecularFormula by
-                            default), Text
+                            molecularFormula column name (molecularFormula by default),
+                            Text
       -w MOLECULARWEIGHT, --molecularWeight MOLECULARWEIGHT
-                            molecularWeight column name (molecularWeight by
-                            default), Mass e.g. 0.01 mg)
+                            molecularWeight column name (molecularWeight by default), Mass
+                            e.g. 0.01 mg)
       -mw MONOISOTOPICMOLECULARWEIGHT, --monoisotopicMolecularWeight MONOISOTOPICMOLECULARWEIGHT
                             monoisotopicMolecularWeight column name
-                            (monoisotopicMolecularWeight by default), Mass e.g.
-                            0.01 mg
+                            (monoisotopicMolecularWeight by default), Mass e.g. 0.01 mg
       -d DESCRIPTION, --description DESCRIPTION
                             description column name (description by default), Text
       -dd DISAMBIGUATINGDESCRIPTION, --disambiguatingDescription DISAMBIGUATINGDESCRIPTION
@@ -72,11 +73,9 @@ Python 3.2 and above are supported. No additional dependencies are required.
       -img IMAGE, --image IMAGE
                             image column name (image by default), URL
       -at ADDITIONALTYPE, --additionalType ADDITIONALTYPE
-                            additionalType column name (additionalType by
-                            default), URL
+                            additionalType column name (additionalType by default), URL
       -an ALTERNATENAME, --alternateName ALTERNATENAME
-                            alternateName column name (alternateName by default),
-                            Text
+                            alternateName column name (alternateName by default), Text
       -sa SAMEAS, --sameAs SAMEAS
                             sameAs column name (sameAs by default), URL
       -c, --columns         Use only columns with renamed names

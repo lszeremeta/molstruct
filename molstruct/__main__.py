@@ -12,12 +12,14 @@ def main():
     parser = argparse.ArgumentParser(
         description='Converts chemical molecule data CSV files to Structured Data formats - JSON-LD, RDFa and '
                     'Microdata. Supported CSV columns: ' +
-                    str(n.DEFAULT_COLUMN_NAMES))
+                    str(n.DEFAULT_COLUMN_NAMES), prog='molstruct')
     parser.add_argument("--version", help='show program version and exit', action="version", version=__version__)
     parser.add_argument('file', type=str,
                         help='CSV file with molecule data to convert')
     parser.add_argument("-f", "--format", choices=['jsonldhtml', 'jsonld', 'rdfa', 'microdata'], help="output format",
                         required=True)
+    parser.add_argument("-b", "--baseURL", type=str,
+                        help="base URL of molecule for generators (" + n.BASE_URL_MOLECULE + " by default)")
 
     # optional column names changes
     parser.add_argument("-i", "--identifier", type=str,
@@ -55,6 +57,10 @@ def main():
     parser.add_argument("-l", "--limit", type=int, help="Maximum number of results")
 
     args = parser.parse_args()
+
+    # replace default base molecule URL
+    if args.baseURL:
+        n.BASE_URL_MOLECULE = args.baseURL
 
     # replace default column names
     if args.identifier or args.columns:
