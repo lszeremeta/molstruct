@@ -12,49 +12,56 @@ def main():
     parser = argparse.ArgumentParser(
         description='Converts chemical molecule data CSV files to Structured Data formats - JSON-LD, RDFa and '
                     'Microdata. Supported CSV columns: ' +
-                    str(n.DEFAULT_COLUMN_NAMES), prog='molstruct')
-    parser.add_argument("--version", help='show program version and exit', action="version", version=__version__)
-    parser.add_argument('file', type=str,
-                        help='CSV file with molecule data to convert')
-    parser.add_argument("-f", "--format", choices=['jsonldhtml', 'jsonld', 'rdfa', 'microdata'], help="output format",
-                        required=True)
-    parser.add_argument("-b", "--baseURI", type=str,
-                        help="base URI of molecule for generators (" + n.BASE_URI_MOLECULE + " by default)")
+                    str(n.DEFAULT_COLUMN_NAMES), add_help=False)
+    informative = parser.add_argument_group('Informative arguments')
+    informative.add_argument("-h", "--help", help='show this help message and exit', action="help")
+    informative.add_argument("--version", help='show program version and exit', action="version", version=__version__)
+    required = parser.add_argument_group('Required arguments')
+    required.add_argument("-f", "--format", choices=['jsonldhtml', 'jsonld', 'rdfa', 'microdata'],
+                          help="output format",
+                          required=True)
+    required.add_argument('file', type=str,
+                          help='CSV file with molecule data to convert')
 
-    # optional column names changes
-    parser.add_argument("-i", "--identifier", type=str,
-                        help="identifier column name (" + n.IDENTIFIER + " by default), Text")
-    parser.add_argument("-n", "--name", type=str, help="name column name (" + n.NAME + " by default), Text")
-    parser.add_argument("-ink", "--inChIKey", type=str,
-                        help="inChIKey column name (" + n.INCHIKEY + " by default), Text")
-    parser.add_argument("-in", "--inChI", type=str, help="inChI column name (" + n.INCHI + " by default), Text")
-    parser.add_argument("-s", "--smiles", type=str, help="smiles column name (" + n.SMILES + " by default), Text")
-    parser.add_argument("-u", "--url", type=str, help="url column name (" + n.URL + " by default), URL type")
-    parser.add_argument("-iu", "--iupacName", type=str,
-                        help="iupacName column name (" + n.IUPAC_NAME + " by default), Text")
-    parser.add_argument("-mf", "--molecularFormula", type=str,
-                        help="molecularFormula column name (" + n.MOLECULAR_FORMULA + " by default), Text")
-    parser.add_argument("-w", "--molecularWeight", type=str,
-                        help="molecularWeight column name (" + n.MOLECULAR_WEIGHT + " by default), Mass e.g. 0.01 mg)")
-    parser.add_argument("-mw", "--monoisotopicMolecularWeight", type=str,
-                        help="monoisotopicMolecularWeight column name (" + n.MONOISOTOPIC_MOLECULAR_WEIGHT + " by default), Mass e.g. 0.01 mg")
-    parser.add_argument("-d", "--description", type=str,
-                        help="description column name (" + n.DESCRIPTION + " by default), Text")
-    parser.add_argument("-dd", "--disambiguatingDescription", type=str,
-                        help="disambiguatingDescription column name (" + n.DISAMBIGUATING_DESCRIPTION + " by default), Text")
-    parser.add_argument("-img", "--image", type=str,
-                        help="image column name (" + n.IMAGE + " by default), URL")
-    parser.add_argument("-at", "--additionalType", type=str,
-                        help="additionalType column name (" + n.ADDITIONAL_TYPE + " by default), URL")
-    parser.add_argument("-an", "--alternateName", type=str,
-                        help="alternateName column name (" + n.ALTERNATE_NAME + " by default), Text")
-    parser.add_argument("-sa", "--sameAs", type=str,
-                        help="sameAs column name (" + n.SAME_AS + " by default), URL")
+    # optional column name change
+    column_names = parser.add_argument_group('Column name change arguments',
+                                             'Arguments for changing the default column names')
+    column_names.add_argument("-i", "--identifier", type=str,
+                              help="identifier column name (" + n.IDENTIFIER + " by default), Text")
+    column_names.add_argument("-n", "--name", type=str, help="name column name (" + n.NAME + " by default), Text")
+    column_names.add_argument("-ink", "--inChIKey", type=str,
+                              help="inChIKey column name (" + n.INCHIKEY + " by default), Text")
+    column_names.add_argument("-in", "--inChI", type=str, help="inChI column name (" + n.INCHI + " by default), Text")
+    column_names.add_argument("-s", "--smiles", type=str, help="smiles column name (" + n.SMILES + " by default), Text")
+    column_names.add_argument("-u", "--url", type=str, help="url column name (" + n.URL + " by default), URL type")
+    column_names.add_argument("-iu", "--iupacName", type=str,
+                              help="iupacName column name (" + n.IUPAC_NAME + " by default), Text")
+    column_names.add_argument("-mf", "--molecularFormula", type=str,
+                              help="molecularFormula column name (" + n.MOLECULAR_FORMULA + " by default), Text")
+    column_names.add_argument("-w", "--molecularWeight", type=str,
+                              help="molecularWeight column name (" + n.MOLECULAR_WEIGHT + " by default), Mass e.g. 0.01 mg)")
+    column_names.add_argument("-mw", "--monoisotopicMolecularWeight", type=str,
+                              help="monoisotopicMolecularWeight column name (" + n.MONOISOTOPIC_MOLECULAR_WEIGHT + " by default), Mass e.g. 0.01 mg")
+    column_names.add_argument("-d", "--description", type=str,
+                              help="description column name (" + n.DESCRIPTION + " by default), Text")
+    column_names.add_argument("-dd", "--disambiguatingDescription", type=str,
+                              help="disambiguatingDescription column name (" + n.DISAMBIGUATING_DESCRIPTION + " by default), Text")
+    column_names.add_argument("-img", "--image", type=str,
+                              help="image column name (" + n.IMAGE + " by default), URL")
+    column_names.add_argument("-at", "--additionalType", type=str,
+                              help="additionalType column name (" + n.ADDITIONAL_TYPE + " by default), URL")
+    column_names.add_argument("-an", "--alternateName", type=str,
+                              help="alternateName column name (" + n.ALTERNATE_NAME + " by default), Text")
+    column_names.add_argument("-sa", "--sameAs", type=str,
+                              help="sameAs column name (" + n.SAME_AS + " by default), URL")
 
-    parser.add_argument("-c", "--columns",
-                        help="Use only columns with renamed names",
-                        action="store_true")
-    parser.add_argument("-l", "--limit", type=int, help="Maximum number of results")
+    additional_settings = parser.add_argument_group('Additional settings arguments')
+    additional_settings.add_argument("-c", "--columns",
+                                     help="use only columns with renamed names",
+                                     action="store_true")
+    additional_settings.add_argument("-b", "--baseURI", type=str,
+                                     help="base URI of molecule (" + n.BASE_URI_MOLECULE + " by default)")
+    additional_settings.add_argument("-l", "--limit", type=int, help="maximum number of results")
 
     args = parser.parse_args()
 

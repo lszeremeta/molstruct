@@ -3,7 +3,7 @@
 [![PyPI](https://img.shields.io/pypi/v/molstruct)](https://pypi.org/project/molstruct/) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/3602c4be20d14be1b750db5a1875263a)](https://www.codacy.com/manual/lszeremeta/molstruct?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lszeremeta/molstruct&amp;utm_campaign=Badge_Grade)
 
 Converts chemical molecule data [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files to structured data formats - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://schema.org/docs/gs.html). Supported
-CSV columns: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `additionalType`, `alternateName` and `sameAs`.  Works from CLI on Python 3.2 and above. Molstruct is lightweight. No additional dependencies are required.
+CSV columns: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `additionalType`, `alternateName` and `sameAs`.  Works from CLI on Python 3.2 and above. Molstruct is lightweight - no additional dependencies are required.
 
 ## What are structured data
 
@@ -23,27 +23,29 @@ Python 3.2 and above are supported. No additional dependencies are required.
 
 ## Usage
 
-    usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata} [-b BASEURI]
-                     [-i IDENTIFIER] [-n NAME] [-ink INCHIKEY] [-in INCHI] [-s SMILES]
-                     [-u URL] [-iu IUPACNAME] [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
+    usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata} [-i IDENTIFIER]
+                     [-n NAME] [-ink INCHIKEY] [-in INCHI] [-s SMILES] [-u URL]
+                     [-iu IUPACNAME] [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
                      [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
                      [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-at ADDITIONALTYPE]
-                     [-an ALTERNATENAME] [-sa SAMEAS] [-c] [-l LIMIT]
+                     [-an ALTERNATENAME] [-sa SAMEAS] [-c] [-b BASEURI] [-l LIMIT]
                      file
 
-### Positional arguments
-
-      file                  CSV file with molecule data to convert
-
-### Optional arguments
+### Informative arguments
 
       -h, --help            show this help message and exit
       --version             show program version and exit
+
+### Required arguments
+
       -f {jsonldhtml,jsonld,rdfa,microdata}, --format {jsonldhtml,jsonld,rdfa,microdata}
                             output format
-      -b BASEURI, --baseURI BASEURI
-                            base URI of molecule for generators
-                            (http://example.com/molecule/ by default)
+      file                  CSV file with molecule data to convert
+
+### Column name change arguments
+
+Arguments for changing the default column names
+
       -i IDENTIFIER, --identifier IDENTIFIER
                             identifier column name (identifier by default), Text
       -n NAME, --name NAME  name column name (name by default), Text
@@ -78,9 +80,14 @@ Python 3.2 and above are supported. No additional dependencies are required.
                             alternateName column name (alternateName by default), Text
       -sa SAMEAS, --sameAs SAMEAS
                             sameAs column name (sameAs by default), URL
-      -c, --columns         Use only columns with renamed names
+
+### Additional settings arguments
+
+      -c, --columns         use only columns with renamed names
+      -b BASEURI, --baseURI BASEURI
+                            base URI of molecule (http://example.com/molecule/ by default)
       -l LIMIT, --limit LIMIT
-                            Maximum number of results
+                            maximum number of results
 
 Available options may vary depending on the version. To display all available options with their descriptions use ``molstruct -h``.
 
