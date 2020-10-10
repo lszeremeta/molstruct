@@ -65,7 +65,7 @@ Arguments for changing the default column names
 ### Additional settings arguments
 
 * `-c, --columns` use only columns with renamed names
-* `-b BASEURI`, `--baseURI BASEURI` base URI of molecule (http://example.com/molecule/ by default)
+* `-b BASEURI`, `--baseURI BASEURI` base URI of molecule (<http://example.com/molecule/> by default)
 * `-l LIMIT`, `--limit LIMIT` maximum number of results
 
 Available options may vary depending on the version. To display all available options with their descriptions use ``molstruct -h``.
