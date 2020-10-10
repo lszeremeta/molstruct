@@ -40,7 +40,7 @@ Python 3.2 and above are supported. No additional dependencies are required.
 
       -f {jsonldhtml,jsonld,rdfa,microdata}, --format {jsonldhtml,jsonld,rdfa,microdata}
                             output format
-      file                  CSV file with molecule data to convert
+      file                  CSV file path with molecule data to convert
 
 ### Column name change arguments
 

@@ -21,7 +21,7 @@ def main():
                           help="output format",
                           required=True)
     required.add_argument('file', type=str,
-                          help='CSV file with molecule data to convert')
+                          help='CSV file path with molecule data to convert')
 
     # optional column name change
     column_names = parser.add_argument_group('Column name change arguments',
