@@ -23,7 +23,7 @@ Python 3.2 and above are supported. No additional dependencies are required.
 
 ## Usage
 
-    usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata} [-b BASEURL]
+    usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata} [-b BASEURI]
                      [-i IDENTIFIER] [-n NAME] [-ink INCHIKEY] [-in INCHI] [-s SMILES]
                      [-u URL] [-iu IUPACNAME] [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
                      [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
@@ -41,8 +41,8 @@ Python 3.2 and above are supported. No additional dependencies are required.
       --version             show program version and exit
       -f {jsonldhtml,jsonld,rdfa,microdata}, --format {jsonldhtml,jsonld,rdfa,microdata}
                             output format
-      -b BASEURL, --baseURL BASEURL
-                            base URL of molecule for generators
+      -b BASEURI, --baseURI BASEURI
+                            base URI of molecule for generators
                             (http://example.com/molecule/ by default)
       -i IDENTIFIER, --identifier IDENTIFIER
                             identifier column name (identifier by default), Text

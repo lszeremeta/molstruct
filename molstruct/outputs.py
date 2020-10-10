@@ -24,7 +24,7 @@ def create_jsonld_output(reader, limit):
     out_str += '  "@graph" : [\n'
     for row in reader:
         out_str += '  {\n'
-        out_str += '  "@id" : "' + n.BASE_URL_MOLECULE + str(i) + '",\n'
+        out_str += '  "@id" : "' + n.BASE_URI_MOLECULE + str(i) + '",\n'
         out_str += '  "@type" : "https://schema.org/MolecularEntity",\n'
         if row.get(n.IDENTIFIER):
             out_str += '  "identifier" : ' + json.dumps(row.get(n.IDENTIFIER)) + ',\n'
@@ -131,7 +131,7 @@ def create_rdfa_output(reader, limit):
   </head>
   <body vocab="http://schema.org/">''')
     for row in reader:
-        print('    <div typeof="schema:MolecularEntity" about="' + n.BASE_URL_MOLECULE + str(i) + '">')
+        print('    <div typeof="schema:MolecularEntity" about="' + n.BASE_URI_MOLECULE + str(i) + '">')
         if row.get(n.IDENTIFIER):
             print('      <div property="schema:identifier">' + html.escape(row.get(n.IDENTIFIER)) + '</div>')
         if row.get(n.NAME):
@@ -195,7 +195,7 @@ def create_microdata_output(reader, limit):
   </head>
   <body>''')
     for row in reader:
-        print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="' + n.BASE_URL_MOLECULE + str(
+        print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="' + n.BASE_URI_MOLECULE + str(
             i) + '">')
         if row.get(n.IDENTIFIER):
             print('      <div itemprop="identifier">' + html.escape(row.get(n.IDENTIFIER)) + '</div>')

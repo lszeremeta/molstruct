@@ -18,8 +18,8 @@ def main():
                         help='CSV file with molecule data to convert')
     parser.add_argument("-f", "--format", choices=['jsonldhtml', 'jsonld', 'rdfa', 'microdata'], help="output format",
                         required=True)
-    parser.add_argument("-b", "--baseURL", type=str,
-                        help="base URL of molecule for generators (" + n.BASE_URL_MOLECULE + " by default)")
+    parser.add_argument("-b", "--baseURI", type=str,
+                        help="base URI of molecule for generators (" + n.BASE_URI_MOLECULE + " by default)")
 
     # optional column names changes
     parser.add_argument("-i", "--identifier", type=str,
@@ -58,9 +58,9 @@ def main():
 
     args = parser.parse_args()
 
-    # replace default base molecule URL
-    if args.baseURL:
-        n.BASE_URL_MOLECULE = args.baseURL
+    # replace default base molecule URI
+    if args.baseURI:
+        n.BASE_URI_MOLECULE = args.baseURI
 
     # replace default column names
     if args.identifier or args.columns:
