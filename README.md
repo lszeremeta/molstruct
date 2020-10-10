@@ -53,7 +53,7 @@ Arguments for changing the default column names
 * `-u URL`, `--url URL` url column name (url by default), URL type
 * `-iu IUPACNAME`, `--iupacName IUPACNAME` iupacName column name (iupacName by default), Text
 * `-mf MOLECULARFORMULA`, `--molecularFormula MOLECULARFORMULA` molecularFormula column name (molecularFormula by default), Text
-`-w MOLECULARWEIGHT`, `--molecularWeight MOLECULARWEIGHT` molecularWeight column name (molecularWeight by default), Mass e.g. 0.01 mg)
+* `-w MOLECULARWEIGHT`, `--molecularWeight MOLECULARWEIGHT` molecularWeight column name (molecularWeight by default), Mass e.g. 0.01 mg)
 * `-mw MONOISOTOPICMOLECULARWEIGHT`, `--monoisotopicMolecularWeight MONOISOTOPICMOLECULARWEIGHT` monoisotopicMolecularWeight column name (monoisotopicMolecularWeight by default), Mass e.g. 0.01 mg
 * `-d DESCRIPTION`, `--description DESCRIPTION` description column name (description by default), Text
 * `-dd DISAMBIGUATINGDESCRIPTION`, `--disambiguatingDescription DISAMBIGUATINGDESCRIPTION` disambiguatingDescription column name (disambiguatingDescription by default), Text
