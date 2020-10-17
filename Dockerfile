@@ -1,6 +1,6 @@
 # Molstruct Dockerfile
 
-FROM gcr.io/distroless/python3
+FROM gcr.io/distroless/python3:nonroot
 LABEL maintainer="Łukasz Szeremeta <l.szeremeta.dev+molstruct@gmail.com>"
 
 WORKDIR /app
