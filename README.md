@@ -19,7 +19,73 @@ You can install the Molstruct from [PyPI](https://pypi.org/project/molstruct/):
 
     pip install molstruct
 
-Python 3.2 and above are supported. No additional dependencies are required.
+Python 3.2 and above are supported. No additional dependencies are required. To use molstruct just type the `molstruct` command in terminal.
+
+## Docker image
+
+If you have [Docker](https://docs.docker.com/engine/install/) installed, you can use the pre-built image on [Docker Hub](https://hub.docker.com/r/lszeremeta/molstruct).
+
+Because the tool is closed inside the container, you have to [mount](https://docs.docker.com/storage/bind-mounts/#start-a-container-with-a-bind-mount) local directory with your input file. The default working directory of the image is `/app`. You need to mount your local directory inside it (e.g. `/app/input`):
+
+```shell
+docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly lszeremeta/molstruct:latest
+```
+
+In this case, the local directory `/home/user/input` has been mounted under `/app/input`.
+
+The `$(pwd)` sub-command expands to the current working directory on Linux or macOS hosts. You can simply mount `input` directory inside your current working directory:
+
+```shell
+docker run -it --rm --name molstruct-app --mount type=bind,source="$(pwd)"/input,target=/app/input,readonly lszeremeta/molstruct:latest
+```
+
+## Other options
+
+You may want to run molstruct from sources or build a Docker image yourself. In most cases, one of the methods mentioned in the sections above should be sufficient and convenient for you.
+
+### Run molstruct from sources
+
+1. Clone this repository:
+
+```shell
+git clone https://github.com/lszeremeta/molstruct.git
+```
+
+If you don't want or can't use git, you can [download the zip archive](https://github.com/lszeremeta/molstruct/archive/master.zip) and extract it.
+
+2. Go to the project directory and run molstruct:
+
+```shell
+cd molstruct
+python -m molstruct
+```
+
+### Local Docker build
+
+You need [Docker](https://docs.docker.com/engine/install/) installed.
+
+1. Clone this repository:
+
+```shell
+git clone https://github.com/lszeremeta/molstruct.git
+```
+
+If you don't want or can't use git, you can [download the zip archive](https://github.com/lszeremeta/molstruct/archive/master.zip) and extract it. 
+
+2. Go to the project directory and Docker image:
+
+```shell
+cd molstruct
+docker build -t molstruct .
+```
+
+3. Run Docker container:
+
+```shell
+docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly molstruct
+```
+
+In this case, your local directory `/home/user/input` has been mounted under `/app/input`.
 
 ## Usage
 
@@ -33,13 +99,15 @@ Python 3.2 and above are supported. No additional dependencies are required.
 
 ### Informative arguments
 
-* `-h`, `--help` show this help message and exit
+* `-h`, `--help` show help message and exit
 * `--version` show program version and exit
 
 ### Required arguments
 
 * `-f {jsonldhtml,jsonld,rdfa,microdata}`, `--format {jsonldhtml,jsonld,rdfa,microdata}` output format
 * `file` CSV file path with molecule data to convert
+
+Remember about the appropriate file path when using Docker image. Suppose you mounted your local directory `/home/user/input` under `/app/input` and the path to the CSV file you want to use in molstruct is `/home/user/input/file.csv`, enter the path `/app/input/file.csv` or `input/file.csv` as `file` argument value.
 
 ### Column name change arguments
 
@@ -73,16 +141,26 @@ Available options may vary depending on the version. To display all available op
 ## Examples
 
     molstruct -f rdfa data.csv
+
 Returns simple HTML with added RDFa. Assumes that the column names in CSV file are the default ones.
 
     molstruct -f microdata -mf "formula" data.csv
+
 Returns simple HTML with added Microdata. Assumes that the column names in CSV file are the default ones but replaces default `molecularformula` column name by `formula`.
 
     molstruct -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv"
+
 Returns simple HTML with added Microdata. When generating a file, only selected columns will be taken into account. A limit of 50 molecules has been specified.
 
     molstruct -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
+
 Do the same as example above but save results to `output.html`.
+
+    docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly lszeremeta/molstruct:latest -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "input/drugbank vocabulary.csv" > output.html
+
+Do the same as example above (run from pre-build Docker image).
+
+Returns simple HTML with added [Microdata](https://www.w3.org/TR/microdata/) and redirect output to `molecules.html` file. Run from pre-build Docker image.
 
 ## Contribution
 
