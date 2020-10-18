@@ -1,0 +1,21 @@
+DrugBank ID,Accession Numbers,Common name,CAS,UNII,Synonyms,Standard InChI Key
+DB00001,BIOD00024 | BTD00024,Lepirudin,138068-37-8,Y43GF64R34,Hirudin variant-1 | Lepirudin recombinant,
+DB00002,BIOD00071 | BTD00071,Cetuximab,205923-56-4,PQX0D8J21J,Cetuximab | Cétuximab | Cetuximabum,
+DB00003,BIOD00001 | BTD00001,Dornase alfa,143831-71-4,953A26OA1Y,"Deoxyribonuclease (human clone 18-1 protein moiety) | Dornasa alfa | Dornase alfa, recombinant | Dornase alpha | Recombinant deoxyribonuclease (DNAse)",
+DB00004,BIOD00084 | BTD00084,Denileukin diftitox,173146-27-5,25E79B5CTM,Denileukin | Interleukin-2/diptheria toxin fusion protein,
+DB00005,BIOD00052 | BTD00052,Etanercept,185243-69-0,OP401G7OJC,Etanercept | etanercept-szzs | etanercept-ykro | Recombinant human TNF | rhu TNFR:Fc | rhu-TNFR:Fc | TNFR-Immunoadhesin,
+DB00006,BIOD00076 | BTD00076 | DB02351 | EXPT03302,Bivalirudin,128270-60-0,TN9BEX005G,Bivalirudin | Bivalirudina | Bivalirudinum,OIRCOABEOLEUMC-GEJPAHFPSA-N
+DB00007,BIOD00009 | BTD00009,Leuprolide,53714-56-0,EFY6W0M8TG,Leuprorelin | Leuprorelina | Leuproreline | Leuprorelinum,GFIJNRVAKGFPGQ-LIJARHBVSA-N
+DB00008,BIOD00043 | BTD00043,Peginterferon alfa-2a,198153-51-4,Q46947FE7K,PEG-IFN alfa-2A | PEG-Interferon alfa-2A | Peginterferon alfa-2a | Pegylated Interfeaon alfa-2A | Pegylated interferon alfa-2a | Pegylated interferon alpha-2a | Pegylated-interferon alfa 2a,
+DB00009,BIOD00050 | BTD00050,Alteplase,105857-23-6,1RXS4UE564,"Alteplasa | Alteplase (genetical recombination) | Alteplase, recombinant | Alteplase,recombinant | Plasminogen activator (human tissue-type protein moiety) | rt-PA | t-PA | t-plasminogen activator | Tissue plasminogen activator | Tissue plasminogen activator alteplase | Tissue plasminogen activator, recombinant | tPA",
+DB00010,BIOD00033 | BTD00033,Sermorelin,86168-78-7,89243S03TE,"",
+DB00011,BIOD00096 | BTD00096 | DB00084,Interferon alfa-n1,74899-72-2,41697D4Z5C,Interferon alpha-n1 (INS),
+DB00012,BIOD00032 | BTD00032,Darbepoetin alfa,209810-58-2,15UQ94PT4P,"Darbepoetin | Darbepoetin alfa,recombinant | Darbepoetina alfa",
+DB00013,BIOD00030 | BTD00030,Urokinase,9039-53-6,83G67E21XI,"Kinase (enzyme-activating), uro-urokinase | TCUK | Tissue culture urokinase | Two-chain urokinase | Urochinasi | Urokinase | Urokinasum | Uroquinasa",
+DB00014,BIOD00113 | BTD00113,Goserelin,65807-02-5,0F65R8P09N,Goserelin | Goserelina,BLCLNMBMMGCOAS-URPVMXJPSA-N
+DB00015,BIOD00013 | BTD00013,Reteplase,133652-38-7,DQA630RIE9,"Human t-PA (residues 1-3 and 176-527) | Reteplasa | Reteplase, recombinant | Reteplase,recombinant",
+DB00016,BIOD00103 | BTD00103 | DB08923,Erythropoietin,11096-26-7,64FS3BFH5W,"E.P.O. | Epoetin alfa | Epoetin alfa rDNA | Epoetin alfa-epbx | Epoetin alfa, recombinant | Epoetin beta | Epoetin beta rDNA | Epoetin epsilon | Epoetin gamma | Epoetin gamma rDNA | Epoetin kappa | Epoetin omega | Epoetin theta | Epoetin zeta | Epoetina alfa | Epoetina beta | Epoetina dseta | Epoetina zeta | Epoétine zêta | Epoetinum zeta | Erythropoiesis stimulating factor | Erythropoietin (human, recombinant) | Erythropoietin (recombinant human) | ESF | SH-polypeptide-72",
+DB00017,BIOD00025 | BTD00025,Salmon calcitonin,47931-85-1,7SFC6U2VI5,"Calcitonin (Salmon Synthetic) | Calcitonin salmon | Calcitonin salmon recombinant | Calcitonin-salmon | Calcitonin, salmon | Calcitonina salmón sintética | Recombinant salmon calcitonin | Salmon calcitonin",
+DB00018,BIOD00023 | BTD00023,Interferon alfa-n3,,47BPR3V3MP,"",
+DB00019,BIOD00094 | BTD00094,Pegfilgrastim,208265-92-3,3A58010674,Granulocyte colony-stimulating factor pegfilgrastim | peg-filgrastim | pegfilgrastim-apgf | pegfilgrastim-bmez | pegfilgrastim-cbqv | pegfilgrastim-jmdb,
+DB00020,BIOD00035 | BTD00035,Sargramostim,123774-72-1,5TAA004E22,Recombinant human granulocyte-macrophage colony stimulating factor | rGM-CSF | rHu GM-CSF | Sargramostim,

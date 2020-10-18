@@ -5,19 +5,19 @@ import json
 import molstruct.names as n
 
 
-def create_jsonldhtml_output(reader, limit):
+def jsonld_html(reader, limit):
     print('''<!DOCTYPE html>
     <html lang="en">
       <head>
         <title>Example Document</title>
         <script type="application/ld+json">''')
-    create_jsonld_output(reader, limit)
+    jsonld(reader, limit)
     print('''        </script>
       </head>
     </html>''')
 
 
-def create_jsonld_output(reader, limit):
+def jsonld(reader, limit):
     i = 1
 
     out_str = '{\n'
@@ -122,7 +122,7 @@ def create_jsonld_output(reader, limit):
 }''')
 
 
-def create_rdfa_output(reader, limit):
+def rdfa(reader, limit):
     i = 1
     print('''<!DOCTYPE html>
 <html lang="en">
@@ -186,7 +186,7 @@ def create_rdfa_output(reader, limit):
     print('</html>')
 
 
-def create_microdata_output(reader, limit):
+def microdata(reader, limit):
     i = 1
     print('''<!DOCTYPE html>
 <html lang="en">
