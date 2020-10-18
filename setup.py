@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+"""The setup script."""
+
 import setuptools
 
 with open("README.md", "r") as fh:
@@ -8,8 +10,8 @@ setuptools.setup(
     name="molstruct",
     version="2.0.0",
     author="Łukasz Szeremeta",
-    author_email="l.szeremeta.dev@gmail.com",
-    license="MIT",
+    author_email="l.szeremeta.dev+molstruct@gmail.com",
+    license="MIT License",
     description="Convert chemical molecule data CSV files to structured data formats",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -46,6 +48,7 @@ setuptools.setup(
         "Topic :: Text Processing :: Markup",
         "Topic :: Utilities"
     ],
+    keywords='Molstruct, cheminformatics, parser, CLI, CSV, structured data, JSON-LD, JSON, Microdata, RDFa, MolecularEntitly, molecules, converter, Bioschemas, schema.org',
     python_requires='>=3.2',
     entry_points={
         "console_scripts": [
