@@ -19,11 +19,11 @@ You can install the Molstruct from [PyPI](https://pypi.org/project/molstruct/):
 
     pip install molstruct
 
-Python 3.2 and above are supported. No additional dependencies are required. To use molstruct just type the `molstruct` command in terminal.
+Python 3.2 and above are supported. No additional dependencies are required. To use Molstruct just type the `molstruct` command in terminal.
 
 ## Docker image
 
-If you have [Docker](https://docs.docker.com/engine/install/) installed, you can use the pre-built image on [Docker Hub](https://hub.docker.com/r/lszeremeta/molstruct).
+If you have [Docker](https://docs.docker.com/engine/install/) installed, you can use tiny Molstruct image from [Docker Hub](https://hub.docker.com/r/lszeremeta/molstruct).
 
 Because the tool is closed inside the container, you have to [mount](https://docs.docker.com/storage/bind-mounts/#start-a-container-with-a-bind-mount) local directory with your input file. The default working directory of the image is `/app`. You need to mount your local directory inside it (e.g. `/app/input`):
 
@@ -41,9 +41,9 @@ docker run -it --rm --name molstruct-app --mount type=bind,source="$(pwd)",targe
 
 ## Other options
 
-You may want to run molstruct from sources or build a Docker image yourself. In most cases, one of the methods mentioned in the sections above should be sufficient and convenient for you.
+You may want to run Molstruct from sources or build a Docker image yourself. In most cases, one of the methods mentioned in the sections above should be sufficient and convenient for you.
 
-### Run molstruct from sources
+### Run Molstruct from sources
 
 1. Clone this repository:
 
@@ -53,7 +53,7 @@ git clone https://github.com/lszeremeta/molstruct.git
 
 If you don't want or can't use git, you can [download the zip archive](https://github.com/lszeremeta/molstruct/archive/master.zip) and extract it.
 
-2. Go to the project directory and run molstruct:
+2. Go to the project directory and run Molstruct:
 
 ```shell
 cd molstruct
@@ -107,7 +107,7 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
 * `-f {jsonldhtml,jsonld,rdfa,microdata}`, `--format {jsonldhtml,jsonld,rdfa,microdata}` output format
 * `file` CSV file path with molecule data to convert
 
-Remember about the appropriate file path when using Docker image. Suppose you mounted your local directory `/home/user/input` under `/app/input` and the path to the CSV file you want to use in molstruct is `/home/user/input/file.csv`, enter the path `/app/input/file.csv` or `input/file.csv` as `file` argument value.
+Remember about the appropriate file path when using Docker image. Suppose you mounted your local directory `/home/user/input` under `/app/input` and the path to the CSV file you want to use in molstruct is `/home/user/input/file.csv`. In this case, enter the path `/app/input/file.csv` or `input/file.csv` as `file` argument value.
 
 ### Column name change arguments
 
