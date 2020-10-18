@@ -107,7 +107,7 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
 * `-f {jsonldhtml,jsonld,rdfa,microdata}`, `--format {jsonldhtml,jsonld,rdfa,microdata}` output format
 * `file` CSV file path with molecule data to convert
 
-Remember about the appropriate file path when using Docker image. Suppose you mounted your local directory `/home/user/input` under `/app/input` and the path to the CSV file you want to use in molstruct is `/home/user/input/file.csv`, enter the path `/app/input/file.csv` or `input/file.csv` as `file` argument value.
+Remember about the appropriate file path when using Docker image. Suppose you mounted your local directory `/home/user/input` under `/app/input` and the path to the CSV file you want to use in molstruct is `/home/user/input/file.csv`. In this case, enter the path `/app/input/file.csv` or `input/file.csv` as `file` argument value.
 
 ### Column name change arguments
 
