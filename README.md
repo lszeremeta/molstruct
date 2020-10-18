@@ -19,7 +19,7 @@ You can install the Molstruct from [PyPI](https://pypi.org/project/molstruct/):
 
     pip install molstruct
 
-Python 3.2 and above are supported. No additional dependencies are required. To use molstruct just type the `molstruct` command in terminal.
+Python 3.2 and above are supported. No additional dependencies are required. To use Molstruct just type the `molstruct` command in terminal.
 
 ## Docker image
 
