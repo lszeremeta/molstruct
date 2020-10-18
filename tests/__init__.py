@@ -1,1 +1,1 @@
-"""Unit test package for molstruct"""
+"""Unit test package for molstruct."""

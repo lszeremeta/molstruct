@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Tests for molstruct package"""
+"""Tests for molstruct package."""
 import csv
 import json
 import os
@@ -16,7 +16,7 @@ HERE = os.path.dirname(__file__)
 
 @pytest.fixture
 def csv_reader():
-    """ Open test file and return csv.DictReader """
+    """Open test file and return csv.DictReader"""
     return csv.DictReader(open(os.path.join(HERE, "drugbank_vocabulary_CC0_first_20_sample.csv"), 'r'))
 
 
@@ -34,7 +34,6 @@ def test_jsonld_is_json(capsys, csv_reader):
 
 def test_jsonld_html_have_required_strings(capsys, csv_reader):
     """Test if jsonld_html output have required strings"""
-
     # set column name
     names.NAME = "Common name"
 
@@ -50,7 +49,6 @@ def test_jsonld_html_have_required_strings(capsys, csv_reader):
 
 def test_rdfa_have_required_strings(capsys, csv_reader):
     """Test if rdfa output have required strings"""
-
     # set column name
     names.NAME = "Common name"
 
@@ -66,7 +64,6 @@ def test_rdfa_have_required_strings(capsys, csv_reader):
 
 def test_microdata_have_required_strings(capsys, csv_reader):
     """Test if microdata output have required strings"""
-
     # set column name
     names.IDENTIFIER = "CAS"
 
@@ -81,7 +78,7 @@ def test_microdata_have_required_strings(capsys, csv_reader):
 
 
 def test_jsonld_text_limit_identifier(capsys, csv_reader):
-    """ Check if required string is in JSON output, limit 2, custom identifier """
+    """Check if required string is in JSON output, limit 2, custom identifier"""
     text = "205923-56-4"
     names.IDENTIFIER = "CAS"
 
@@ -93,7 +90,7 @@ def test_jsonld_text_limit_identifier(capsys, csv_reader):
 
 
 def test_jsonldhtml_text_limit_name(capsys, csv_reader):
-    """ Check if required string is in JSON+HTML output, limit 7, custom name """
+    """Check if required string is in JSON+HTML output, limit 7, custom name"""
     text = "Leuprolide"
     names.NAME = "Common name"
 
@@ -105,7 +102,7 @@ def test_jsonldhtml_text_limit_name(capsys, csv_reader):
 
 
 def test_rdfa_text_limit_identifier(capsys, csv_reader):
-    """ Check if required string is in RDFa output, limit 4, custom identifier """
+    """Check if required string is in RDFa output, limit 4, custom identifier"""
     text = "143831-71-4"
     names.IDENTIFIER = "CAS"
 
@@ -117,7 +114,7 @@ def test_rdfa_text_limit_identifier(capsys, csv_reader):
 
 
 def test_create_microdata_text_exceeded_limit_name(capsys, csv_reader):
-    """ Check if required string is in Microdata output, limit 100 (more than lines in file), custom name """
+    """Check if required string is in Microdata output, limit 100 (more than lines in file), custom name"""
     text = "Darbepoetin alfa"
     names.NAME = "Common name"
 
