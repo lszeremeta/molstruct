@@ -48,7 +48,24 @@ setuptools.setup(
         "Topic :: Text Processing :: Markup",
         "Topic :: Utilities"
     ],
-    keywords='Molstruct, cheminformatics, parser, CLI, CSV, structured data, JSON-LD, JSON, Microdata, RDFa, MolecularEntitly, molecules, converter, Bioschemas, schema.org',
+    keywords=[
+        "Molstruct",
+        "cheminformatics",
+        "parser",
+        "CLI",
+        "CSV",
+        "structured data",
+        "JSON-LD",
+        "JSON",
+        "Microdata",
+        "RDFa",
+        "MolecularEntity",
+        "molecules",
+        "converter",
+        "Bioschemas",
+        "schema.org",
+        "chemical data"
+    ],
     python_requires='>=3.2',
     entry_points={
         "console_scripts": [
