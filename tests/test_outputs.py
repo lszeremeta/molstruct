@@ -3,17 +3,21 @@
 """Tests for molstruct package"""
 import csv
 import json
+import os
 
 import pytest
 
 from molstruct import names
 from molstruct import outputs
 
+# Current directory
+HERE = os.path.dirname(__file__)
+
 
 @pytest.fixture
 def csv_reader():
     """ Open test file and return csv.DictReader """
-    return csv.DictReader(open("drugbank_vocabulary_CC0_first_20_sample.csv", 'r'))
+    return csv.DictReader(open(os.path.join(HERE, "drugbank_vocabulary_CC0_first_20_sample.csv"), 'r'))
 
 
 #
