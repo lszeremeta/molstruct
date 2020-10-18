@@ -41,9 +41,9 @@ docker run -it --rm --name molstruct-app --mount type=bind,source="$(pwd)",targe
 
 ## Other options
 
-You may want to run molstruct from sources or build a Docker image yourself. In most cases, one of the methods mentioned in the sections above should be sufficient and convenient for you.
+You may want to run Molstruct from sources or build a Docker image yourself. In most cases, one of the methods mentioned in the sections above should be sufficient and convenient for you.
 
-### Run molstruct from sources
+### Run Molstruct from sources
 
 1. Clone this repository:
 
@@ -53,7 +53,7 @@ git clone https://github.com/lszeremeta/molstruct.git
 
 If you don't want or can't use git, you can [download the zip archive](https://github.com/lszeremeta/molstruct/archive/master.zip) and extract it.
 
-2. Go to the project directory and run molstruct:
+2. Go to the project directory and run Molstruct:
 
 ```shell
 cd molstruct
