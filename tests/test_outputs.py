@@ -31,14 +31,27 @@ def test_jsonld_is_json(capsys, csv_reader):
     assert json.loads(stdout)
     assert stderr == ""
 
-
-def test_jsonld_html_have_required_strings(capsys, csv_reader):
-    """Test if jsonld_html output have required strings."""
+def test_jsonld_contains_required_strings(capsys, csv_reader):
+    """Test if jsonld output contains required strings."""
     # set column name
     names.NAME = "Common name"
 
     # list of strings to check
-    strings = ['<', '>', '</', 'script>', '@id', '{', '}', 'name']
+    strings = ['@id', '{', '}', ',', 'MolecularEntity', 'name']
+
+    outputs.jsonld(csv_reader, None)
+
+    stdout, stderr = capsys.readouterr()
+    assert all(s in stdout for s in strings)
+    assert stderr == ""
+
+def test_jsonld_html_contains_required_strings(capsys, csv_reader):
+    """Test if jsonld_html output contains required strings."""
+    # set column name
+    names.NAME = "Common name"
+
+    # list of strings to check
+    strings = ['<', '>', '</', 'script>', '@id', '{', '}', ',', 'MolecularEntity', 'name']
 
     outputs.jsonld_html(csv_reader, None)
 
@@ -47,13 +60,13 @@ def test_jsonld_html_have_required_strings(capsys, csv_reader):
     assert stderr == ""
 
 
-def test_rdfa_have_required_strings(capsys, csv_reader):
-    """Test if rdfa output have required strings."""
+def test_rdfa_contains_required_strings(capsys, csv_reader):
+    """Test if rdfa output contains required strings."""
     # set column name
     names.NAME = "Common name"
 
     # list of strings to check
-    strings = ['<', '>', '</', 'typeof', 'property', 'name']
+    strings = ['<', '>', '</', 'typeof', 'property', 'MolecularEntity', 'name']
 
     outputs.rdfa(csv_reader, None)
 
@@ -62,13 +75,13 @@ def test_rdfa_have_required_strings(capsys, csv_reader):
     assert stderr == ""
 
 
-def test_microdata_have_required_strings(capsys, csv_reader):
-    """Test if microdata output have required strings."""
+def test_microdata_contains_required_strings(capsys, csv_reader):
+    """Test if microdata output contains required strings."""
     # set column name
     names.IDENTIFIER = "CAS"
 
     # list of strings to check
-    strings = ['<', '>', '</', 'itemscope', 'itemtype', 'itemprop', 'identifier']
+    strings = ['<', '>', '</', 'itemscope', 'itemtype', 'itemprop', 'MolecularEntity', 'identifier']
 
     outputs.microdata(csv_reader, None)
 
