@@ -3,7 +3,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/3602c4be20d14be1b750db5a1875263a)](https://www.codacy.com/gh/lszeremeta/molstruct/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lszeremeta/molstruct&amp;utm_campaign=Badge_Grade) [![PyPI](https://img.shields.io/pypi/v/molstruct)](https://pypi.org/project/molstruct/) [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/lszeremeta/molstruct?label=Docker%20image%20size)](https://hub.docker.com/r/lszeremeta/molstruct)
 
 Converts chemical molecule data [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files to structured data formats - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://schema.org/docs/gs.html). Supported
-CSV columns: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `additionalType`, `alternateName` and `sameAs`.  Works from CLI on Python 3.2 and above. Molstruct is lightweight - no additional dependencies are required.
+CSV columns: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `additionalType`, `alternateName` and `sameAs`.  Works from CLI on Python 3.2 and above. Molstruct is lightweight - no additional dependencies are required. Do you love️ Docker? You can use a lightweight [Molstruct container](https://hub.docker.com/r/lszeremeta/molstruct)!
 
 ## What are structured data
 
