@@ -4,8 +4,6 @@
 
 Molstruct is a lightweight Python CLI tool that converts chemical molecule data [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files to structured data formats - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://schema.org/docs/gs.html). Molstruct has a lot of customization options that you can but don't have to use. Python 3.2+ are supported and no dependencies are required. Sounds good so far? What would you say to a really tiny [Molstruct Docker container](https://hub.docker.com/r/lszeremeta/molstruct)? Just try Molstruct!
 
-Supported [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) properties that corresponds to default, CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `additionalType`, `alternateName` and `sameAs`. You can rename the columns if needed (see documentation below).
-
 ## What are structured data
 
 Structured data are additional data placed on websites. They are not visible to ordinary internet users, but can be easily processed by machines. There are 3 formats that we can use to save structured data - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://www.w3.org/TR/microdata/). Molstruct supports them all and use [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) type.
@@ -97,6 +95,8 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
                      [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-at ADDITIONALTYPE]
                      [-an ALTERNATENAME] [-sa SAMEAS] [-c] [-b BASEURI] [-l LIMIT]
                      file
+
+Supported [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) properties that corresponds to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `additionalType`, `alternateName` and `sameAs`. You can rename the columns if needed (see Column name change arguments below).
 
 ### Informative arguments
 
