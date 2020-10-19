@@ -72,7 +72,7 @@ git clone https://github.com/lszeremeta/molstruct.git
 
 If you don't want or can't use git, you can [download the zip archive](https://github.com/lszeremeta/molstruct/archive/master.zip) and extract it. 
 
-2. Go to the project directory and Docker image:
+2. Go to the project directory and build Docker image:
 
 ```shell
 cd molstruct
