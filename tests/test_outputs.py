@@ -31,6 +31,7 @@ def test_jsonld_is_json(capsys, csv_reader):
     assert json.loads(stdout)
     assert stderr == ""
 
+
 def test_jsonld_contains_required_strings(capsys, csv_reader):
     """Test if jsonld output contains required strings."""
     # set column name
@@ -44,6 +45,7 @@ def test_jsonld_contains_required_strings(capsys, csv_reader):
     stdout, stderr = capsys.readouterr()
     assert all(s in stdout for s in strings)
     assert stderr == ""
+
 
 def test_jsonld_html_contains_required_strings(capsys, csv_reader):
     """Test if jsonld_html output contains required strings."""
