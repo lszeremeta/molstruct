@@ -16,8 +16,9 @@ HERE = os.path.dirname(__file__)
 
 @pytest.fixture
 def csv_reader():
-    """Open test file and return csv.DictReader."""
-    return csv.DictReader(open(os.path.join(HERE, "drugbank_vocabulary_CC0_first_20_sample.csv"), 'r'))
+    """Open test file and prepare csv.DictReader."""
+    with open(os.path.join(HERE, "drugbank_vocabulary_CC0_first_20_sample.csv"), 'r') as csvfile:
+        yield csv.DictReader(csvfile)
 
 
 #
