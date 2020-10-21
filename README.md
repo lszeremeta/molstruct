@@ -96,7 +96,7 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
                      [-an ALTERNATENAME] [-sa SAMEAS] [-c] [-b BASEURI] [-l LIMIT]
                      file
 
-Supported [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) properties that corresponds to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `additionalType`, `alternateName` and `sameAs`. You can rename the columns if needed (see Column name change arguments below).
+Supported [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) properties that corresponds to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `additionalType`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below).
 
 ### Informative arguments
 
