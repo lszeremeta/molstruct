@@ -119,7 +119,7 @@ Arguments for changing the default column names
 * `-ink INCHIKEY`, `--inChIKey INCHIKEY` inChIKey column name (inChIKey by default), Text
 * `-in INCHI`, `--inChI INCHI` inChI column name (inChI by default), Text
 * `-s SMILES`, `--smiles SMILES` smiles column name (smiles by default), Text
-* `-u URL`, `--url URL` url column name (url by default), URL type
+* `-u URL`, `--url URL` url column name (url by default), URL
 * `-iu IUPACNAME`, `--iupacName IUPACNAME` iupacName column name (iupacName by default), Text
 * `-mf MOLECULARFORMULA`, `--molecularFormula MOLECULARFORMULA` molecularFormula column name (molecularFormula by default), Text
 * `-w MOLECULARWEIGHT`, `--molecularWeight MOLECULARWEIGHT` molecularWeight column name (molecularWeight by default), Mass e.g. 0.01 mg)
