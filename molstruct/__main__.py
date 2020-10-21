@@ -33,7 +33,7 @@ def main():
                               help="inChIKey column name (" + n.INCHIKEY + " by default), Text")
     column_names.add_argument("-in", "--inChI", type=str, help="inChI column name (" + n.INCHI + " by default), Text")
     column_names.add_argument("-s", "--smiles", type=str, help="smiles column name (" + n.SMILES + " by default), Text")
-    column_names.add_argument("-u", "--url", type=str, help="url column name (" + n.URL + " by default), URL type")
+    column_names.add_argument("-u", "--url", type=str, help="url column name (" + n.URL + " by default), URL")
     column_names.add_argument("-iu", "--iupacName", type=str,
                               help="iupacName column name (" + n.IUPAC_NAME + " by default), Text")
     column_names.add_argument("-mf", "--molecularFormula", type=str,
