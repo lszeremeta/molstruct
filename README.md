@@ -169,7 +169,7 @@ Would you like to improve this project? Great! We are waiting for your help and 
 
 ## License
 
-Distributed under [MIT license](https://github.com/lszeremeta/molstruct/blob/master/LICENSE).
+Distributed under [MIT License](https://github.com/lszeremeta/molstruct/blob/master/LICENSE).
 
 ## See also
 
