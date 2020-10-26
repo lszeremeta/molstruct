@@ -131,7 +131,8 @@ def rdfa(reader, limit):
   </head>
   <body vocab="http://schema.org/">''')
     for row in reader:
-        print('    <div typeof="schema:MolecularEntity" about="' + html.escape(n.BASE_URI_MOLECULE, quote=True) + str(i) + '">')
+        print('    <div typeof="schema:MolecularEntity" about="' + html.escape(n.BASE_URI_MOLECULE, quote=True) + str(
+            i) + '">')
         if row.get(n.IDENTIFIER):
             print('      <div property="schema:identifier">' + html.escape(row.get(n.IDENTIFIER)) + '</div>')
         if row.get(n.NAME):
@@ -174,7 +175,8 @@ def rdfa(reader, limit):
             print('      <div property="schema:alternateName">' + html.escape(row.get(n.ALTERNATE_NAME)) + '</div>')
         if row.get(n.SAME_AS):
             print(
-                '      <a rel="schema:sameAs" href="' + html.escape(row.get(n.SAME_AS), quote=True) + '">' + html.escape(
+                '      <a rel="schema:sameAs" href="' + html.escape(row.get(n.SAME_AS),
+                                                                    quote=True) + '">' + html.escape(
                     row.get(n.SAME_AS)) + '</a>')
         print('    </div>')
 
@@ -195,7 +197,8 @@ def microdata(reader, limit):
   </head>
   <body>''')
     for row in reader:
-        print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="' + html.escape(n.BASE_URI_MOLECULE, quote=True) + str(
+        print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="' + html.escape(
+            n.BASE_URI_MOLECULE, quote=True) + str(
             i) + '">')
         if row.get(n.IDENTIFIER):
             print('      <div itemprop="identifier">' + html.escape(row.get(n.IDENTIFIER)) + '</div>')
@@ -234,7 +237,8 @@ def microdata(reader, limit):
         if row.get(n.ALTERNATE_NAME):
             print('      <div itemprop="alternateName">' + html.escape(row.get(n.ALTERNATE_NAME)) + '</div>')
         if row.get(n.SAME_AS):
-            print('      <a href="' + html.escape(row.get(n.ADDITIONAL_TYPE), quote=True) + '" itemprop="sameAs">' + html.escape(
+            print('      <a href="' + html.escape(row.get(n.ADDITIONAL_TYPE),
+                                                  quote=True) + '" itemprop="sameAs">' + html.escape(
                 row.get(n.SAME_AS)) + '</a>')
         print('    </div>')
 
