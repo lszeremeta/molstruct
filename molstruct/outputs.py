@@ -24,7 +24,7 @@ def jsonld(reader, limit):
     out_str += '  "@graph" : [\n'
     for row in reader:
         out_str += '  {\n'
-        out_str += '  "@id" : "' + n.BASE_URI_MOLECULE + str(i) + '",\n'
+        out_str += '  "@id" : ' + json.dumps(n.BASE_URI_MOLECULE + str(i)) + ',\n'
         out_str += '  "@type" : "https://schema.org/MolecularEntity",\n'
         if row.get(n.IDENTIFIER):
             out_str += '  "identifier" : ' + json.dumps(row.get(n.IDENTIFIER)) + ',\n'
@@ -131,7 +131,7 @@ def rdfa(reader, limit):
   </head>
   <body vocab="http://schema.org/">''')
     for row in reader:
-        print('    <div typeof="schema:MolecularEntity" about="' + n.BASE_URI_MOLECULE + str(i) + '">')
+        print('    <div typeof="schema:MolecularEntity" about="' + html.escape(n.BASE_URI_MOLECULE, quote=True) + str(i) + '">')
         if row.get(n.IDENTIFIER):
             print('      <div property="schema:identifier">' + html.escape(row.get(n.IDENTIFIER)) + '</div>')
         if row.get(n.NAME):
@@ -144,7 +144,7 @@ def rdfa(reader, limit):
             print('      <div property="schema:smiles">' + html.escape(row.get(n.SMILES)) + '</div>')
         if row.get(n.URL):
             print(
-                '      <a rel="schema:url" href="' + html.escape(row.get(n.URL)) + '">' + html.escape(
+                '      <a rel="schema:url" href="' + html.escape(row.get(n.URL), quote=True) + '">' + html.escape(
                     row.get(n.URL)) + '</a>')
         if row.get(n.IUPAC_NAME):
             print('      <div property="schema:iupacName">' + html.escape(row.get(n.IUPAC_NAME)) + '</div>')
@@ -163,18 +163,18 @@ def rdfa(reader, limit):
                 row.get(n.DISAMBIGUATING_DESCRIPTION)) + '</div>')
         if row.get(n.IMAGE):
             print(
-                '      <a rel="schema:image" href="' + html.escape(row.get(n.IMAGE)) + '">' + html.escape(
+                '      <a rel="schema:image" href="' + html.escape(row.get(n.IMAGE), quote=True) + '">' + html.escape(
                     row.get(n.IMAGE)) + '</a>')
         if row.get(n.ADDITIONAL_TYPE):
             print(
                 '      <a rel="schema:additionalType" href="' + html.escape(
-                    row.get(n.ADDITIONAL_TYPE)) + '">' + html.escape(
+                    row.get(n.ADDITIONAL_TYPE), quote=True) + '">' + html.escape(
                     row.get(n.ADDITIONAL_TYPE)) + '</a>')
         if row.get(n.ALTERNATE_NAME):
             print('      <div property="schema:alternateName">' + html.escape(row.get(n.ALTERNATE_NAME)) + '</div>')
         if row.get(n.SAME_AS):
             print(
-                '      <a rel="schema:sameAs" href="' + html.escape(row.get(n.SAME_AS)) + '">' + html.escape(
+                '      <a rel="schema:sameAs" href="' + html.escape(row.get(n.SAME_AS), quote=True) + '">' + html.escape(
                     row.get(n.SAME_AS)) + '</a>')
         print('    </div>')
 
@@ -195,7 +195,7 @@ def microdata(reader, limit):
   </head>
   <body>''')
     for row in reader:
-        print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="' + n.BASE_URI_MOLECULE + str(
+        print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="' + html.escape(n.BASE_URI_MOLECULE, quote=True) + str(
             i) + '">')
         if row.get(n.IDENTIFIER):
             print('      <div itemprop="identifier">' + html.escape(row.get(n.IDENTIFIER)) + '</div>')
@@ -208,7 +208,7 @@ def microdata(reader, limit):
         if row.get(n.SMILES):
             print('      <div itemprop="smiles">' + html.escape(row.get(n.SMILES)) + '</div>')
         if row.get(n.URL):
-            print('      <a href="' + html.escape(row.get(n.URL)) + '" itemprop="url">' + html.escape(
+            print('      <a href="' + html.escape(row.get(n.URL), quote=True) + '" itemprop="url">' + html.escape(
                 row.get(n.URL)) + '</a>')
         if row.get(n.IUPAC_NAME):
             print('      <div itemprop="iupacName">' + html.escape(row.get(n.IUPAC_NAME)) + '</div>')
@@ -225,16 +225,16 @@ def microdata(reader, limit):
             print('      <div itemprop="disambiguatingDescription">' + html.escape(
                 row.get(n.DISAMBIGUATING_DESCRIPTION)) + '</div>')
         if row.get(n.IMAGE):
-            print('      <a href="' + html.escape(row.get(n.IMAGE)) + '" itemprop="image">' + html.escape(
+            print('      <a href="' + html.escape(row.get(n.IMAGE), quote=True) + '" itemprop="image">' + html.escape(
                 row.get(n.IMAGE)) + '</a>')
         if row.get(n.ADDITIONAL_TYPE):
             print('      <a href="' + html.escape(
-                row.get(n.ADDITIONAL_TYPE)) + '" itemprop="additionalType">' + html.escape(
+                row.get(n.ADDITIONAL_TYPE), quote=True) + '" itemprop="additionalType">' + html.escape(
                 row.get(n.ADDITIONAL_TYPE)) + '</a>')
         if row.get(n.ALTERNATE_NAME):
             print('      <div itemprop="alternateName">' + html.escape(row.get(n.ALTERNATE_NAME)) + '</div>')
         if row.get(n.SAME_AS):
-            print('      <a href="' + html.escape(row.get(n.ADDITIONAL_TYPE)) + '" itemprop="sameAs">' + html.escape(
+            print('      <a href="' + html.escape(row.get(n.ADDITIONAL_TYPE), quote=True) + '" itemprop="sameAs">' + html.escape(
                 row.get(n.SAME_AS)) + '</a>')
         print('    </div>')
 
