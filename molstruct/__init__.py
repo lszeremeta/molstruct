@@ -8,4 +8,4 @@ See https://github.com/lszeremeta/molstruct for more information.
 
 __author__ = 'Łukasz Szeremeta'
 __email__ = 'l.szeremeta.dev+molstruct@gmail.com'
-__version__ = '2.0.0'
+__version__ = '2.0.1'
