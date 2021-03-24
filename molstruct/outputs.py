@@ -51,6 +51,8 @@ def jsonld(reader, limit):
             out_str += '  "description" : ' + json.dumps(row.get(n.DESCRIPTION)) + ',\n'
         if row.get(n.DISAMBIGUATING_DESCRIPTION):
             out_str += '  "disambiguatingDescription" : ' + json.dumps(row.get(n.DISAMBIGUATING_DESCRIPTION)) + ',\n'
+        if row.get(n.IMAGE):
+            out_str += '  "image" : ' + json.dumps(row.get(n.IMAGE)) + ',\n'
         if row.get(n.ADDITIONAL_TYPE):
             out_str += '  "additionalType" : ' + json.dumps(row.get(n.ADDITIONAL_TYPE)) + ',\n'
         if row.get(n.ALTERNATE_NAME):
