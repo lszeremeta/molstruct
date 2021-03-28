@@ -91,13 +91,13 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
     usage: molstruct [-h] [--version] -f {jsonld_html,jsonld,rdfa,microdata} [-i IDENTIFIER]
                      [-n NAME] [-ink INCHIKEY] [-in INCHI] [-s SMILES] [-u URL] [-iu IUPACNAME]
                      [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
-                     [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
-                     [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-at ADDITIONALTYPE]
-                     [-an ALTERNATENAME] [-sa SAMEAS] [-p {drugbank}] [-c] [-b BASEURI]
+                     [-mw MONOISOTOPICMOLECULARWEIGHT] [-ds DESCRIPTION]
+                     [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-an ALTERNATENAME]
+                     [-sa SAMEAS] [-p {drugbank}] [-c] [-b BASEURI] [-vd VALUE_DELIMITER]
                      [-l LIMIT]
                      file
 
-Supported [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) properties that corresponds to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `additionalType`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below).
+Supported [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) properties that corresponds to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below).
 
 ### Informative arguments
 
@@ -125,10 +125,9 @@ Arguments for changing the default column names
 * `-mf MOLECULARFORMULA`, `--molecularFormula MOLECULARFORMULA` molecularFormula column name (molecularFormula by default), Text
 * `-w MOLECULARWEIGHT`, `--molecularWeight MOLECULARWEIGHT` molecularWeight column name (molecularWeight by default), Mass e.g. 0.01 mg)
 * `-mw MONOISOTOPICMOLECULARWEIGHT`, `--monoisotopicMolecularWeight MONOISOTOPICMOLECULARWEIGHT` monoisotopicMolecularWeight column name (monoisotopicMolecularWeight by default), Mass e.g. 0.01 mg
-* `-d DESCRIPTION`, `--description DESCRIPTION` description column name (description by default), Text
+* `-ds DESCRIPTION`, `--description DESCRIPTION` description column name (description by default), Text
 * `-dd DISAMBIGUATINGDESCRIPTION`, `--disambiguatingDescription DISAMBIGUATINGDESCRIPTION` disambiguatingDescription column name (disambiguatingDescription by default), Text
 * `-img IMAGE`, `--image IMAGE` image column name (image by default), URL
-* `-at ADDITIONALTYPE`, `--additionalType ADDITIONALTYPE` additionalType column name (additionalType by default), URL
 * `-an ALTERNATENAME`, `--alternateName ALTERNATENAME` alternateName column name (alternateName by default), Text
 * `-sa SAMEAS`, `--sameAs SAMEAS` sameAs column name (sameAs by default), URL
 
@@ -137,6 +136,7 @@ Arguments for changing the default column names
 * `-p {drugbank}`, `--preset {drugbank}` apply presets for individual CSV sources to avoid setting individual options manually
 * `-c, --columns` use only columns with renamed names
 * `-b BASEURI`, `--baseURI BASEURI` base URI of molecule (<http://example.com/molecule/> by default)
+* `-vd VALUE_DELIMITER`, `--value-delimiter VALUE_DELIMITER` value delimiter (' | ' by default)
 * `-l LIMIT`, `--limit LIMIT` maximum number of results
 
 Available options may vary depending on the version. To display all available options with their descriptions use ``molstruct -h``.
