@@ -50,7 +50,7 @@ def main():
     column_names.add_argument("-mw", "--monoisotopicMolecularWeight", type=str,
                               help="monoisotopicMolecularWeight column name ('" + n.COLUMNS[
                                   'monoisotopicMolecularWeight'] + "' by default), Mass e.g. 0.01 mg")
-    column_names.add_argument("-ds", "--description", type=str,
+    column_names.add_argument("-d", "--description", type=str,
                               help="description column name ('" + n.COLUMNS['description'] + "' by default), Text")
     column_names.add_argument("-dd", "--disambiguatingDescription", type=str,
                               help="disambiguatingDescription column name ('" + n.COLUMNS[

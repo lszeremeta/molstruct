@@ -91,7 +91,7 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
     usage: molstruct [-h] [--version] -f {jsonld_html,jsonld,rdfa,microdata} [-i IDENTIFIER]
                      [-n NAME] [-ink INCHIKEY] [-in INCHI] [-s SMILES] [-u URL] [-iu IUPACNAME]
                      [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
-                     [-mw MONOISOTOPICMOLECULARWEIGHT] [-ds DESCRIPTION]
+                     [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
                      [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-an ALTERNATENAME]
                      [-sa SAMEAS] [-p {drugbank}] [-c] [-b BASEURI] [-vd VALUE_DELIMITER]
                      [-l LIMIT]
@@ -125,7 +125,7 @@ Arguments for changing the default column names
 * `-mf MOLECULARFORMULA`, `--molecularFormula MOLECULARFORMULA` molecularFormula column name (molecularFormula by default), Text
 * `-w MOLECULARWEIGHT`, `--molecularWeight MOLECULARWEIGHT` molecularWeight column name (molecularWeight by default), Mass e.g. 0.01 mg)
 * `-mw MONOISOTOPICMOLECULARWEIGHT`, `--monoisotopicMolecularWeight MONOISOTOPICMOLECULARWEIGHT` monoisotopicMolecularWeight column name (monoisotopicMolecularWeight by default), Mass e.g. 0.01 mg
-* `-ds DESCRIPTION`, `--description DESCRIPTION` description column name (description by default), Text
+* `-d DESCRIPTION`, `--description DESCRIPTION` description column name (description by default), Text
 * `-dd DISAMBIGUATINGDESCRIPTION`, `--disambiguatingDescription DISAMBIGUATINGDESCRIPTION` disambiguatingDescription column name (disambiguatingDescription by default), Text
 * `-img IMAGE`, `--image IMAGE` image column name (image by default), URL
 * `-an ALTERNATENAME`, `--alternateName ALTERNATENAME` alternateName column name (alternateName by default), Text
