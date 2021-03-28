@@ -56,6 +56,8 @@ def main():
                               help="sameAs column name (" + n.SAME_AS + " by default), URL")
 
     additional_settings = parser.add_argument_group('Additional settings arguments')
+    additional_settings.add_argument("-p", "--preset", choices=['drugbank'],
+                          help="apply presets for individual CSV sources to avoid setting individual options manually")
     additional_settings.add_argument("-c", "--columns",
                                      help="use only columns with renamed names",
                                      action="store_true")
@@ -68,6 +70,12 @@ def main():
     # replace default base molecule URI
     if args.baseURI:
         n.BASE_URI_MOLECULE = args.baseURI
+
+    if args.preset == 'drugbank':
+        args.columns = True
+        args.identifier = 'CAS'
+        args.name = 'Common name'
+        args.inChIKey = 'Standard InChI Key'
 
     # replace default column names
     if args.identifier or args.columns:

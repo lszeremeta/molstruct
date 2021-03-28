@@ -89,11 +89,12 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
 ## Usage
 
     usage: molstruct [-h] [--version] -f {jsonld_html,jsonld,rdfa,microdata} [-i IDENTIFIER]
-                     [-n NAME] [-ink INCHIKEY] [-in INCHI] [-s SMILES] [-u URL]
-                     [-iu IUPACNAME] [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
+                     [-n NAME] [-ink INCHIKEY] [-in INCHI] [-s SMILES] [-u URL] [-iu IUPACNAME]
+                     [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
                      [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
                      [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-at ADDITIONALTYPE]
-                     [-an ALTERNATENAME] [-sa SAMEAS] [-c] [-b BASEURI] [-l LIMIT]
+                     [-an ALTERNATENAME] [-sa SAMEAS] [-p {drugbank}] [-c] [-b BASEURI]
+                     [-l LIMIT]
                      file
 
 Supported [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) properties that corresponds to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `additionalType`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below).
@@ -133,6 +134,7 @@ Arguments for changing the default column names
 
 ### Additional settings arguments
 
+* `-p {drugbank}`, `--preset {drugbank}` apply presets for individual CSV sources to avoid setting individual options manually
 * `-c, --columns` use only columns with renamed names
 * `-b BASEURI`, `--baseURI BASEURI` base URI of molecule (<http://example.com/molecule/> by default)
 * `-l LIMIT`, `--limit LIMIT` maximum number of results
