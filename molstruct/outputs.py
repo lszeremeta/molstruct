@@ -83,9 +83,6 @@ def jsonld(reader, limit):
     "image" : {
       "@id" : "https://schema.org/image"
     },
-    "additionalType" : {
-      "@id" : "https://schema.org/additionalType"
-    },
     "alternateName" : {
       "@id" : "https://schema.org/alternateName"
     },
