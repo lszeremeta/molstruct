@@ -115,27 +115,27 @@ Remember about the appropriate file path when using Docker image. Suppose you mo
 
 Arguments for changing the default column names
 
-* `-i IDENTIFIER`, `--identifier IDENTIFIER` identifier column name (identifier by default), Text
-* `-n NAME`, `--name NAME` name column name (name by default), Text
-* `-ink INCHIKEY`, `--inChIKey INCHIKEY` inChIKey column name (inChIKey by default), Text
-* `-in INCHI`, `--inChI INCHI` inChI column name (inChI by default), Text
-* `-s SMILES`, `--smiles SMILES` smiles column name (smiles by default), Text
-* `-u URL`, `--url URL` url column name (url by default), URL
-* `-iu IUPACNAME`, `--iupacName IUPACNAME` iupacName column name (iupacName by default), Text
-* `-mf MOLECULARFORMULA`, `--molecularFormula MOLECULARFORMULA` molecularFormula column name (molecularFormula by default), Text
-* `-w MOLECULARWEIGHT`, `--molecularWeight MOLECULARWEIGHT` molecularWeight column name (molecularWeight by default), Mass e.g. 0.01 mg)
-* `-mw MONOISOTOPICMOLECULARWEIGHT`, `--monoisotopicMolecularWeight MONOISOTOPICMOLECULARWEIGHT` monoisotopicMolecularWeight column name (monoisotopicMolecularWeight by default), Mass e.g. 0.01 mg
-* `-d DESCRIPTION`, `--description DESCRIPTION` description column name (description by default), Text
-* `-dd DISAMBIGUATINGDESCRIPTION`, `--disambiguatingDescription DISAMBIGUATINGDESCRIPTION` disambiguatingDescription column name (disambiguatingDescription by default), Text
-* `-img IMAGE`, `--image IMAGE` image column name (image by default), URL
-* `-an ALTERNATENAME`, `--alternateName ALTERNATENAME` alternateName column name (alternateName by default), Text
-* `-sa SAMEAS`, `--sameAs SAMEAS` sameAs column name (sameAs by default), URL
+* `-i IDENTIFIER`, `--identifier IDENTIFIER` identifier column name ('identifier' by default), Text
+* `-n NAME`, `--name NAME` name column name ('name' by default), Text
+* `-ink INCHIKEY`, `--inChIKey INCHIKEY` inChIKey column name ('inChIKey' by default), Text
+* `-in INCHI`, `--inChI INCHI` inChI column name ('inChI' by default), Text
+* `-s SMILES`, `--smiles SMILES` smiles column name ('smiles' by default), Text
+* `-u URL`, `--url URL` url column name ('url' by default), URL
+* `-iu IUPACNAME`, `--iupacName IUPACNAME` iupacName column name ('iupacName' by default), Text
+* `-mf MOLECULARFORMULA`, `--molecularFormula MOLECULARFORMULA` molecularFormula column name ('molecularFormula' by default), Text
+* `-w MOLECULARWEIGHT`, `--molecularWeight MOLECULARWEIGHT` molecularWeight column name ('molecularWeight' by default), Mass e.g. 0.01 mg)
+* `-mw MONOISOTOPICMOLECULARWEIGHT`, `--monoisotopicMolecularWeight MONOISOTOPICMOLECULARWEIGHT` monoisotopicMolecularWeight column name ('monoisotopicMolecularWeight' by default), Mass e.g. 0.01 mg
+* `-d DESCRIPTION`, `--description DESCRIPTION` description column name ('description' by default), Text
+* `-dd DISAMBIGUATINGDESCRIPTION`, `--disambiguatingDescription DISAMBIGUATINGDESCRIPTION` disambiguatingDescription column name ('disambiguatingDescription' by default), Text
+* `-img IMAGE`, `--image IMAGE` image column name ('image' by default), URL
+* `-an ALTERNATENAME`, `--alternateName ALTERNATENAME` alternateName column name ('alternateName' by default), Text
+* `-sa SAMEAS`, `--sameAs SAMEAS` sameAs column name ('sameAs' by default), URL
 
 ### Additional settings arguments
 
 * `-p {drugbank}`, `--preset {drugbank}` apply presets for individual CSV sources to avoid setting individual options manually
 * `-c, --columns` use only columns with renamed names
-* `-b BASEURI`, `--baseURI BASEURI` base URI of molecule (<http://example.com/molecule/> by default)
+* `-b BASEURI`, `--baseURI BASEURI` base URI of molecule ('http://example.com/molecule#' by default)
 * `-vd VALUE_DELIMITER`, `--value-delimiter VALUE_DELIMITER` value delimiter (' | ' by default)
 * `-l LIMIT`, `--limit LIMIT` maximum number of results
 
