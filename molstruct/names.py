@@ -4,7 +4,7 @@
 VALUE_DELIMITER = ' | '
 
 # default base URI of molecule
-BASE_URI_MOLECULE = 'http://example.com/molecule#'
+BASE_URI_MOLECULE = 'http://example.com/molecule#entity'
 
 # column names
 COLUMNS = {'identifier': 'identifier',
