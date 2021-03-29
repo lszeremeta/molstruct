@@ -93,7 +93,7 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
                      [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
                      [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
                      [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-an ALTERNATENAME]
-                     [-sa SAMEAS] [-p {drugbank}] [-c] [-b BASEURI] [-vd VALUE_DELIMITER]
+                     [-sa SAMEAS] [-p {drugbank}] [-c] [-b SUBJECT_BASE] [-vd VALUE_DELIMITER]
                      [-l LIMIT]
                      file
 
@@ -135,9 +135,9 @@ Arguments for changing the default column names
 
 * `-p {drugbank}`, `--preset {drugbank}` apply presets for individual CSV sources to avoid setting individual options manually
 * `-c, --columns` use only columns with renamed names
-* `-b BASEURI`, `--baseURI BASEURI` base URI of molecule ('http://example.com/molecule#' by default)
+* `-b SUBJECT_BASE`, `--subject-base SUBJECT_BASE` subject base of molecule ('http://example.com/molecule#entity' by default)
 * `-vd VALUE_DELIMITER`, `--value-delimiter VALUE_DELIMITER` value delimiter (' | ' by default)
-* `-l LIMIT`, `--limit LIMIT` maximum number of results
+* `-l LIMIT`, `--limit LIMIT` maximum number of results (unlimited by default)
 
 Available options may vary depending on the version. To display all available options with their descriptions use ``molstruct -h``.
 

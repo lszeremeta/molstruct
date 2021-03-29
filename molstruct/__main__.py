@@ -68,11 +68,11 @@ def main():
     additional_settings.add_argument("-c", "--columns",
                                      help="use only columns with renamed names",
                                      action="store_true")
-    additional_settings.add_argument("-b", "--baseURI", type=str,
-                                     help="base URI of molecule ('" + n.BASE_URI_MOLECULE + "' by default)")
+    additional_settings.add_argument("-b", "--subject-base", type=str,
+                                     help="subject base of molecule ('" + n.SUBJECT_BASE + "' by default)")
     additional_settings.add_argument("-vd", "--value-delimiter", type=str,
                                      help="value delimiter ('" + n.VALUE_DELIMITER + "' by default)")
-    additional_settings.add_argument("-l", "--limit", type=int, help="maximum number of results")
+    additional_settings.add_argument("-l", "--limit", type=int, help="maximum number of results (unlimited by default)")
 
     args = parser.parse_args()
 
@@ -87,7 +87,7 @@ def main():
 
     # replace default base molecule URI
     if args.baseURI:
-        n.BASE_URI_MOLECULE = args.baseURI
+        n.SUBJECT_BASE = args.baseURI
 
     # replace default value delimiter
     if args.value_delimiter:

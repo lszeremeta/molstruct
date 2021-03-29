@@ -24,7 +24,7 @@ def jsonld(reader, limit):
     out_str += '  "@graph" : [\n'
     for row in reader:
         out_str += '  {\n'
-        out_str += '  "@id" : ' + json.dumps(n.BASE_URI_MOLECULE + str(i)) + ',\n'
+        out_str += '  "@id" : ' + json.dumps(n.SUBJECT_BASE + str(i)) + ',\n'
         out_str += '  "@type" : "https://schema.org/MolecularEntity",\n'
 
         for key, value in n.COLUMNS.items():
@@ -103,11 +103,11 @@ def rdfa(reader, limit):
   </head>
   <body vocab="http://schema.org/">''')
     for row in reader:
-        print('    <div typeof="schema:MolecularEntity" about="' + html.escape(n.BASE_URI_MOLECULE + str(
+        print('    <div typeof="schema:MolecularEntity" about="' + html.escape(n.SUBJECT_BASE + str(
             i), quote=True), end='')
 
-        if '#' in n.BASE_URI_MOLECULE:
-            print('" id="' + html.escape(n.BASE_URI_MOLECULE.rpartition('#')[-1] + str(i), quote=True), end='')
+        if '#' in n.SUBJECT_BASE:
+            print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i), quote=True), end='')
 
         print('">')
 
@@ -142,11 +142,11 @@ def microdata(reader, limit):
   <body>''')
     for row in reader:
         print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="' + html.escape(
-            n.BASE_URI_MOLECULE + str(
+            n.SUBJECT_BASE + str(
                 i), quote=True), end='')
 
-        if '#' in n.BASE_URI_MOLECULE:
-            print('" id="' + html.escape(n.BASE_URI_MOLECULE.rpartition('#')[-1] + str(i), quote=True), end='')
+        if '#' in n.SUBJECT_BASE:
+            print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i), quote=True), end='')
 
         print('">')
 
