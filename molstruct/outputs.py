@@ -103,8 +103,13 @@ def rdfa(reader, limit):
   </head>
   <body vocab="http://schema.org/">''')
     for row in reader:
-        print('    <div typeof="schema:MolecularEntity" about="' + html.escape(n.BASE_URI_MOLECULE, quote=True) + str(
-            i) + '">')
+        print('    <div typeof="schema:MolecularEntity" about="' + html.escape(n.BASE_URI_MOLECULE + str(
+            i), quote=True), end='')
+
+        if '#' in n.BASE_URI_MOLECULE:
+            print('" id="' + html.escape(n.BASE_URI_MOLECULE.rpartition('#')[-1] + str(i), quote=True), end='')
+
+        print('">')
 
         for key, value in n.COLUMNS.items():
             if row.get(value):
@@ -137,8 +142,13 @@ def microdata(reader, limit):
   <body>''')
     for row in reader:
         print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="' + html.escape(
-            n.BASE_URI_MOLECULE, quote=True) + str(
-            i) + '">')
+            n.BASE_URI_MOLECULE + str(
+                i), quote=True), end='')
+
+        if '#' in n.BASE_URI_MOLECULE:
+            print('" id="' + html.escape(n.BASE_URI_MOLECULE.rpartition('#')[-1] + str(i), quote=True), end='')
+
+        print('">')
 
         for key, value in n.COLUMNS.items():
             if row.get(value):
