@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import html
 import json
+import uuid
 
 import molstruct.names as n
 
@@ -24,8 +25,13 @@ def jsonld(reader, limit):
     out_str += '  "@graph" : [\n'
     for row in reader:
         out_str += '  {\n'
-        out_str += '  "@id" : ' + json.dumps(n.SUBJECT_BASE + str(i)) + ',\n'
-        out_str += '  "@type" : "https://schema.org/MolecularEntity",\n'
+
+        if n.SUBJECT_BASE:
+            out_str += '  "@id" : ' + json.dumps(n.SUBJECT_BASE + str(i))
+        else:
+            out_str += '  "@id" : ' + json.dumps('urn:uuid:' + str(uuid.uuid4()))
+
+        out_str += ',\n  "@type" : "https://schema.org/MolecularEntity",\n'
 
         for key, value in n.COLUMNS.items():
             if n.VALUE_DELIMITER in str(row.get(value)):
@@ -103,11 +109,15 @@ def rdfa(reader, limit):
   </head>
   <body vocab="http://schema.org/">''')
     for row in reader:
-        print('    <div typeof="schema:MolecularEntity" about="' + html.escape(n.SUBJECT_BASE + str(
-            i), quote=True), end='')
+        if n.SUBJECT_BASE:
+            print('    <div typeof="schema:MolecularEntity" about="' + html.escape(n.SUBJECT_BASE + str(
+                i), quote=True), end='')
 
-        if '#' in n.SUBJECT_BASE:
-            print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i), quote=True), end='')
+            if '#' in n.SUBJECT_BASE:
+                print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i), quote=True), end='')
+
+        else:
+            print('    <div typeof="schema:MolecularEntity" about="urn:uuid:' + str(uuid.uuid4()), end='')
 
         print('">')
 
@@ -141,12 +151,15 @@ def microdata(reader, limit):
   </head>
   <body>''')
     for row in reader:
-        print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="' + html.escape(
-            n.SUBJECT_BASE + str(
-                i), quote=True), end='')
+        if n.SUBJECT_BASE:
+            print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="' + html.escape(
+                n.SUBJECT_BASE + str(
+                    i), quote=True), end='')
 
-        if '#' in n.SUBJECT_BASE:
-            print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i), quote=True), end='')
+            if '#' in n.SUBJECT_BASE:
+                print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i), quote=True), end='')
+        else:
+            print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="urn:uuid:' + str(uuid.uuid4()), end='')
 
         print('">')
 

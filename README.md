@@ -93,8 +93,8 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
                      [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
                      [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
                      [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-an ALTERNATENAME]
-                     [-sa SAMEAS] [-p {drugbank}] [-c] [-b SUBJECT_BASE] [-vd VALUE_DELIMITER]
-                     [-l LIMIT]
+                     [-sa SAMEAS] [-p {drugbank}] [-c] [-b SUBJECT_BASE | -uu]
+                     [-vd VALUE_DELIMITER] [-l LIMIT]
                      file
 
 Supported [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) properties that corresponds to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below).
@@ -134,8 +134,9 @@ Arguments for changing the default column names
 ### Additional settings arguments
 
 * `-p {drugbank}`, `--preset {drugbank}` apply presets for individual CSV sources to avoid setting individual options manually
-* `-c, --columns` use only columns with renamed names
-* `-b SUBJECT_BASE`, `--subject-base SUBJECT_BASE` subject base of molecule ('http://example.com/molecule#entity' by default)
+* `-c`, `--columns` use only columns with renamed names
+* `-b SUBJECT_BASE`, `--subject-base SUBJECT_BASE` subject base of the molecule ('http://example.com/molecule#entity' by default)
+* `-uu`, `--urn-uuid` use urn:uuid with the molecule's UUID instead of the subject base
 * `-vd VALUE_DELIMITER`, `--value-delimiter VALUE_DELIMITER` value delimiter (' | ' by default)
 * `-l LIMIT`, `--limit LIMIT` maximum number of results (unlimited by default)
 

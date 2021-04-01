@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-# default value delimiter
+# value delimiter
 VALUE_DELIMITER = ' | '
 
-# default subject base of molecule
+# subject base of molecule; False if UUID
 SUBJECT_BASE = 'http://example.com/molecule#entity'
 
 # column names

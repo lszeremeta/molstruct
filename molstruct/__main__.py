@@ -68,8 +68,11 @@ def main():
     additional_settings.add_argument("-c", "--columns",
                                      help="use only columns with renamed names",
                                      action="store_true")
-    additional_settings.add_argument("-b", "--subject-base", type=str,
-                                     help="subject base of molecule ('" + n.SUBJECT_BASE + "' by default)")
+    subject_settings = additional_settings.add_mutually_exclusive_group()
+    subject_settings.add_argument("-b", "--subject-base", type=str,
+                                  help="subject base of the molecule ('" + n.SUBJECT_BASE + "' by default)")
+    subject_settings.add_argument("-uu", "--urn-uuid",
+                                  help="use urn:uuid with the molecule's UUID instead of the subject base", action="store_true")
     additional_settings.add_argument("-vd", "--value-delimiter", type=str,
                                      help="value delimiter ('" + n.VALUE_DELIMITER + "' by default)")
     additional_settings.add_argument("-l", "--limit", type=int, help="maximum number of results (unlimited by default)")
@@ -86,8 +89,12 @@ def main():
         args.alternateName = 'Synonyms'
 
     # replace default base molecule URI
-    if args.baseURI:
-        n.SUBJECT_BASE = args.baseURI
+    if args.subject_base:
+        n.SUBJECT_BASE = args.subject_base
+
+    # set subject base to False if UUID is use
+    if args.urn_uuid:
+        n.SUBJECT_BASE = False
 
     # replace default value delimiter
     if args.value_delimiter:
