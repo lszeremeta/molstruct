@@ -125,10 +125,13 @@ def rdfa(reader, limit):
             if row.get(value):
                 values = row.get(value).split(n.VALUE_DELIMITER)
                 for v in values:
-                    if key == 'url' or key == 'image' or key == 'sameAs':
+                    if key == 'url' or key == 'sameAs':
                         print('      <a href="' + html.escape(v,
                                                               quote=True) + '" rel="schema:' + key + '">' + html.escape(
                             v) + '</a>')
+                    elif key == 'image':
+                        print('      <img src="' + html.escape(v, quote=True) + '" alt="Image of the Molecule' + str(
+                            i) + '" rel="schema:' + key + '"/>')
                     else:
                         print('      <div property="schema:' + key + '">' + html.escape(v) + '</div>')
 
@@ -159,7 +162,9 @@ def microdata(reader, limit):
             if '#' in n.SUBJECT_BASE:
                 print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i), quote=True), end='')
         else:
-            print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="urn:uuid:' + str(uuid.uuid4()), end='')
+            print(
+                '    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="urn:uuid:' + str(uuid.uuid4()),
+                end='')
 
         print('">')
 
@@ -167,10 +172,13 @@ def microdata(reader, limit):
             if row.get(value):
                 values = row.get(value).split(n.VALUE_DELIMITER)
                 for v in values:
-                    if key == 'url' or key == 'image' or key == 'sameAs':
+                    if key == 'url' or key == 'sameAs':
                         print(
                             '      <a href="' + html.escape(v, quote=True) + '" itemprop="' + key + '">' + html.escape(
                                 v) + '</a>')
+                    elif key == 'image':
+                        print('      <img src="' + html.escape(v, quote=True) + '" alt="Image of the Molecule' + str(
+                            i) + '" itemprop' + key + '"/>')
                     else:
                         print('      <div itemprop=' + key + '">' + html.escape(v) + '</div>')
 
