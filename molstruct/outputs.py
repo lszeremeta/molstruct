@@ -131,7 +131,7 @@ def rdfa(reader, limit):
                             v) + '</a>')
                     elif key == 'image':
                         print('      <img src="' + html.escape(v, quote=True) + '" alt="Image of the Molecule' + str(
-                            i) + '" rel="schema:' + key + '"/>')
+                            i) + '" rel="schema:' + key + '">')
                     else:
                         print('      <div property="schema:' + key + '">' + html.escape(v) + '</div>')
 
@@ -178,7 +178,7 @@ def microdata(reader, limit):
                                 v) + '</a>')
                     elif key == 'image':
                         print('      <img src="' + html.escape(v, quote=True) + '" alt="Image of the Molecule' + str(
-                            i) + '" itemprop' + key + '"/>')
+                            i) + '" itemprop' + key + '">')
                     else:
                         print('      <div itemprop=' + key + '">' + html.escape(v) + '</div>')
 
