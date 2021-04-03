@@ -19,7 +19,7 @@ def jsonld_html(reader, limit):
 
 
 def jsonld(reader, limit):
-    i = 1
+    i = 0
 
     out_str = '{\n'
     out_str += '  "@graph" : [\n'
@@ -101,7 +101,7 @@ def jsonld(reader, limit):
 
 
 def rdfa(reader, limit):
-    i = 1
+    i = 0
     print('''<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -146,7 +146,7 @@ def rdfa(reader, limit):
 
 
 def microdata(reader, limit):
-    i = 1
+    i = 0
     print('''<!DOCTYPE html>
 <html lang="en">
   <head>
