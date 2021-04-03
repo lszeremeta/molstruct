@@ -178,9 +178,9 @@ def microdata(reader, limit):
                                 v) + '</a>')
                     elif key == 'image':
                         print('      <img src="' + html.escape(v, quote=True) + '" alt="Image of the Molecule' + str(
-                            i) + '" itemprop' + key + '">')
+                            i) + '" itemprop="' + key + '">')
                     else:
-                        print('      <div itemprop=' + key + '">' + html.escape(v) + '</div>')
+                        print('      <div itemprop="' + key + '">' + html.escape(v) + '</div>')
 
         print('    </div>')
 
