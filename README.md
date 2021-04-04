@@ -88,7 +88,7 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
 
 ## Usage
 
-    usage: molstruct [-h] [--version] -f {jsonld_html,jsonld,rdfa,microdata} [-i IDENTIFIER]
+    usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata} [-i IDENTIFIER]
                      [-n NAME] [-ink INCHIKEY] [-in INCHI] [-sm SMILES] [-u URL] [-iu IUPACNAME]
                      [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
                      [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
@@ -106,7 +106,7 @@ Supported [MolecularEntitly](https://bioschemas.org/types/MolecularEntity/) prop
 
 ### Required arguments
 
-* `-f {jsonld_html,jsonld,rdfa,microdata}`, `--format {jsonld_html,jsonld,rdfa,microdata}` output format
+* `-f {jsonldhtml,jsonld,rdfa,microdata}`, `--format {jsonldhtml,jsonld,rdfa,microdata}` output format
 * `file` CSV file path with molecule data to convert
 
 Remember about the appropriate file path when using Docker image. Suppose you mounted your local directory `/home/user/input` under `/app/input` and the path to the CSV file you want to use in molstruct is `/home/user/input/file.csv`. In this case, enter the path `/app/input/file.csv` or `input/file.csv` as `file` argument value.

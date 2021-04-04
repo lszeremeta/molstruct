@@ -7,7 +7,7 @@ import uuid
 import molstruct.names as n
 
 
-def jsonld_html(reader, limit):
+def jsonldhtml(reader, limit):
     print('''<!DOCTYPE html>
     <html lang="en">
       <head>

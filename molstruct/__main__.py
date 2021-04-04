@@ -18,7 +18,7 @@ def main():
     informative.add_argument("-h", "--help", help='show this help message and exit', action="help")
     informative.add_argument("--version", help='show program version and exit', action="version", version=__version__)
     required = parser.add_argument_group('Required arguments')
-    required.add_argument("-f", "--format", choices=['jsonld_html', 'jsonld', 'rdfa', 'microdata'],
+    required.add_argument("-f", "--format", choices=['jsonldhtml', 'jsonld', 'rdfa', 'microdata'],
                           help="output format",
                           required=True)
     required.add_argument('file', type=str,
@@ -140,8 +140,8 @@ def main():
         try:
             with open(args.file, 'r') as csvfile:
                 reader = csv.DictReader(csvfile)
-                if args.format == 'jsonld_html':
-                    o.jsonld_html(reader, args.limit)
+                if args.format == 'jsonldhtml':
+                    o.jsonldhtml(reader, args.limit)
                 elif args.format == 'jsonld':
                     o.jsonld(reader, args.limit)
                 elif args.format == 'rdfa':

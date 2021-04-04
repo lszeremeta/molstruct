@@ -48,15 +48,15 @@ def test_jsonld_contains_required_strings(capsys, csv_reader):
     assert stderr == ""
 
 
-def test_jsonld_html_contains_required_strings(capsys, csv_reader):
-    """Test if jsonld_html output contains required strings."""
+def test_jsonldhtml_contains_required_strings(capsys, csv_reader):
+    """Test if jsonldhtml output contains required strings."""
     # set column name
     n.COLUMNS['name'] = "Common name"
 
     # list of strings to check
     strings = ['<', '>', '</', 'script>', '@id', '{', '}', ',', 'MolecularEntity', 'name']
 
-    outputs.jsonld_html(csv_reader, None)
+    outputs.jsonldhtml(csv_reader, None)
 
     stdout, stderr = capsys.readouterr()
     assert all(s in stdout for s in strings)
@@ -110,7 +110,7 @@ def test_jsonldhtml_text_limit_name(capsys, csv_reader):
     text = "Leuprolide"
     n.COLUMNS['name'] = "Common name"
 
-    outputs.jsonld_html(csv_reader, 7)
+    outputs.jsonldhtml(csv_reader, 7)
 
     stdout, stderr = capsys.readouterr()
     assert stderr == ""
