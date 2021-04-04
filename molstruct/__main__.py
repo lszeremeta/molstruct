@@ -35,7 +35,7 @@ def main():
                               help="inChIKey column name ('" + n.COLUMNS['inChIKey'] + "' by default), Text")
     column_names.add_argument("-in", "--inChI", type=str,
                               help="inChI column name ('" + n.COLUMNS['inChI'] + "' by default), Text")
-    column_names.add_argument("-s", "--smiles", type=str,
+    column_names.add_argument("-sm", "--smiles", type=str,
                               help="smiles column name ('" + n.COLUMNS['smiles'] + "' by default), Text")
     column_names.add_argument("-u", "--url", type=str,
                               help="url column name ('" + n.COLUMNS['url'] + "' by default), URL")
@@ -68,11 +68,10 @@ def main():
     additional_settings.add_argument("-c", "--columns",
                                      help="use only columns with renamed names",
                                      action="store_true")
-    subject_settings = additional_settings.add_mutually_exclusive_group()
-    subject_settings.add_argument("-b", "--subject-base", type=str,
-                                  help="subject base of the molecule ('" + n.SUBJECT_BASE + "' by default)")
-    subject_settings.add_argument("-uu", "--urn-uuid",
-                                  help="use urn:uuid with the molecule's UUID instead of the subject base", action="store_true")
+    additional_settings.add_argument("-s", "--subject", choices=['iri', 'uuid', 'bnode'], default='iri',
+                                     help="molecule subject type ('iri' by default)")
+    additional_settings.add_argument("-b", "--base", type=str,
+                                     help="molecule subject base for 'iri' subject type ('" + n.SUBJECT_BASE + "' by default)")
     additional_settings.add_argument("-vd", "--value-delimiter", type=str,
                                      help="value delimiter ('" + n.VALUE_DELIMITER + "' by default)")
     additional_settings.add_argument("-l", "--limit", type=int, help="maximum number of results (unlimited by default)")
@@ -88,13 +87,17 @@ def main():
         args.inChIKey = 'Standard InChI Key'
         args.alternateName = 'Synonyms'
 
-    # replace default base molecule URI
-    if args.subject_base:
-        n.SUBJECT_BASE = args.subject_base
+    # replace default base molecule IRI
+    if args.base:
+        n.SUBJECT_BASE = args.base
 
-    # set subject base to False if UUID is use
-    if args.urn_uuid:
+    # set subject base to False for 'uuid' subject type
+    if args.subject == 'uuid':
         n.SUBJECT_BASE = False
+
+    # set subject base to _:b for 'bnode' subject type
+    if args.subject == 'bnode':
+        n.SUBJECT_BASE = '_:b'
 
     # replace default value delimiter
     if args.value_delimiter:

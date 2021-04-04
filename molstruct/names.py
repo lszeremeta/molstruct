@@ -3,7 +3,9 @@
 # value delimiter
 VALUE_DELIMITER = ' | '
 
-# subject base of molecule; False if UUID
+# subject base of molecule
+# False for 'uuid' subject type
+# '_:b' for 'bnode' subject type
 SUBJECT_BASE = 'http://example.com/molecule#entity'
 
 # column names
