@@ -9,14 +9,14 @@ import molstruct.names as n
 
 def jsonldhtml(reader, limit):
     print('''<!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <title>Example Document</title>
-        <script type="application/ld+json">''')
+<html lang="en">
+  <head>
+    <title>Example Document</title>
+    <script type="application/ld+json">''')
     jsonld(reader, limit)
-    print('''        </script>
-      </head>
-    </html>''')
+    print('''    </script>
+  </head>
+</html>''')
 
 
 def jsonld(reader, limit):
@@ -220,7 +220,8 @@ def microdata(reader, limit):
                 print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i), quote=True), end='')
         else:
             print(
-                '    <div itemscope itemtype="https://schema.org/MolecularEntity" itemid="urn:uuid:' + str(uuid.uuid4()),
+                '    <div itemscope itemtype="https://schema.org/MolecularEntity" itemid="urn:uuid:' + str(
+                    uuid.uuid4()),
                 end='')
 
         print('">')
