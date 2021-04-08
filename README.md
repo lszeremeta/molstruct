@@ -6,7 +6,7 @@ Molstruct is a lightweight Python CLI tool that converts chemical molecule data 
 
 ## What are structured data
 
-Structured data are additional data placed on websites. They are not visible to ordinary internet users, but can be easily processed by machines. There are 3 formats that we can use to save structured data - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://www.w3.org/TR/microdata/). Molstruct supports them all and use [MolecularEntitly profile](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/).
+Structured data are additional data placed on websites. They are not visible to ordinary internet users, but can be easily processed by machines. There are 3 formats that we can use to save structured data - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://www.w3.org/TR/microdata/). Molstruct supports them all and use [MolecularEntity profile](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/).
 
 ## Where to find a CSV file with molecule data
 
@@ -97,7 +97,7 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
                      [-vd VALUE_DELIMITER] [-l LIMIT]
                      file
 
-Supported [MolecularEntitly](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/) properties that corresponds to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below).
+Supported [MolecularEntity](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/) properties that corresponds to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below).
 
 ### Informative arguments
 
