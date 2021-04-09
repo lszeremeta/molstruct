@@ -70,7 +70,7 @@ def jsonld(reader, limit):
         out_str = out_str[:-2] + '\n'
         out_str += '    },'
 
-        if i == limit:
+        if i + 1 == limit:
             break
 
         i = i + 1
@@ -181,7 +181,7 @@ def rdfa(reader, limit):
 
         print('    </div>')
 
-        if i == limit:
+        if i + 1 == limit:
             break
 
         i = i + 1
@@ -242,7 +242,7 @@ def microdata(reader, limit):
 
         print('    </div>')
 
-        if i == limit:
+        if i + 1 == limit:
             break
 
         i = i + 1
