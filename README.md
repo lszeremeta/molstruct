@@ -133,7 +133,7 @@ Arguments for changing the default column names
 
 ### Additional settings arguments
 
-* `-p {drugbank}`, `--preset {drugbank}` apply presets for individual CSV sources to avoid setting individual options manually
+* `-p {drugbank-open}`, `--preset {drugbank-open}` apply presets for individual CSV sources to avoid setting individual options manually ('drugbank-open' - [DrugBank CC0 Open Data dataset](https://go.drugbank.com/releases/latest#open-data))
 * `-c`, `--columns` use only columns with renamed names
 * `-s {iri,uuid,bnode}`, `--subject {iri,uuid,bnode}` molecule subject type ('iri' by default)
 * `-b BASE`, `--base BASE` molecule subject base for 'iri' subject type ('http://example.com/molecule#entity' by default)

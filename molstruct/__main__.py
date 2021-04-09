@@ -63,8 +63,8 @@ def main():
                               help="sameAs column name ('" + n.COLUMNS['sameAs'] + "' by default), URL")
 
     additional_settings = parser.add_argument_group('Additional settings arguments')
-    additional_settings.add_argument("-p", "--preset", choices=['drugbank'],
-                                     help="apply presets for individual CSV sources to avoid setting individual options manually")
+    additional_settings.add_argument("-p", "--preset", choices=['drugbank-open'],
+                                     help="apply presets for individual CSV sources to avoid setting individual options manually ('drugbank-open' - DrugBank CC0 Open Data dataset)")
     additional_settings.add_argument("-c", "--columns",
                                      help="use only columns with renamed names",
                                      action="store_true")
@@ -79,7 +79,7 @@ def main():
     args = parser.parse_args()
 
     # set presets
-    if args.preset == 'drugbank':
+    if args.preset == 'drugbank-open':
         args.value_delimiter = ' | '
         args.columns = True
         args.identifier = 'CAS'
