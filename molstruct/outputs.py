@@ -154,11 +154,10 @@ def rdfa(reader, limit):
     </div>''')
     for row in reader:
         if n.SUBJECT_BASE:
-            print('    <div typeof="schema:MolecularEntity" about="' + html.escape(n.SUBJECT_BASE + str(
-                i), quote=True), end='')
+            print('    <div typeof="schema:MolecularEntity" about="' + html.escape(n.SUBJECT_BASE + str(i)), end='')
 
             if '#' in n.SUBJECT_BASE:
-                print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i), quote=True), end='')
+                print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i)), end='')
 
         else:
             print('    <div typeof="schema:MolecularEntity" about="urn:uuid:' + str(uuid.uuid4()), end='')
@@ -170,14 +169,13 @@ def rdfa(reader, limit):
                 values = row.get(value).split(n.VALUE_DELIMITER)
                 for v in values:
                     if key == 'url' or key == 'sameAs':
-                        print('      <a href="' + html.escape(v,
-                                                              quote=True) + '" rel="schema:' + key + '">' + html.escape(
-                            v) + '</a>')
+                        print('      <a href="' + html.escape(v) + '" rel="schema:' + key + '">' + html.escape(
+                            v, quote=False) + '</a>')
                     elif key == 'image':
-                        print('      <img src="' + html.escape(v, quote=True) + '" alt="Image of the Molecule' + str(
+                        print('      <img src="' + html.escape(v) + '" alt="Image of the Molecule' + str(
                             i) + '" rel="schema:' + key + '">')
                     else:
-                        print('      <div property="schema:' + key + '">' + html.escape(v) + '</div>')
+                        print('      <div property="schema:' + key + '">' + html.escape(v, quote=False) + '</div>')
 
         print('    </div>')
 
@@ -213,15 +211,13 @@ def microdata(reader, limit):
     for row in reader:
         if n.SUBJECT_BASE:
             print('    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="' + html.escape(
-                n.SUBJECT_BASE + str(
-                    i), quote=True), end='')
+                n.SUBJECT_BASE + str(i)), end='')
 
             if '#' in n.SUBJECT_BASE:
-                print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i), quote=True), end='')
+                print('" id="' + html.escape(n.SUBJECT_BASE.rpartition('#')[-1] + str(i)), end='')
         else:
             print(
-                '    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="urn:uuid:' + str(
-                    uuid.uuid4()),
+                '    <div itemscope itemtype="http://schema.org/MolecularEntity" itemid="urn:uuid:' + str(uuid.uuid4()),
                 end='')
 
         print('">')
@@ -232,13 +228,13 @@ def microdata(reader, limit):
                 for v in values:
                     if key == 'url' or key == 'sameAs':
                         print(
-                            '      <a href="' + html.escape(v, quote=True) + '" itemprop="' + key + '">' + html.escape(
-                                v) + '</a>')
+                            '      <a href="' + html.escape(v) + '" itemprop="' + key + '">' + html.escape(
+                                v, quote=False) + '</a>')
                     elif key == 'image':
-                        print('      <img src="' + html.escape(v, quote=True) + '" alt="Image of the Molecule' + str(
+                        print('      <img src="' + html.escape(v) + '" alt="Image of the Molecule' + str(
                             i) + '" itemprop="' + key + '">')
                     else:
-                        print('      <div itemprop="' + key + '">' + html.escape(v) + '</div>')
+                        print('      <div itemprop="' + key + '">' + html.escape(v, quote=False) + '</div>')
 
         print('    </div>')
 
