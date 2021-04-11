@@ -10,7 +10,7 @@ from molstruct import __version__
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Converts chemical molecule data CSV files to Structured Data formats - JSON-LD, RDFa and Microdata. Supported MolecularEntitly properties that corresponds to default CSV column names: ' + str(
+        description='Converts chemical molecule data CSV files to Structured Data formats - JSON-LD, RDFa, and Microdata. Supported MolecularEntitly properties that correspond to default CSV column names: ' + str(
             list(
                 n.COLUMNS.keys())) + '. You can rename the columns if needed (see Column name change arguments below).',
         add_help=False, prog='molstruct')
