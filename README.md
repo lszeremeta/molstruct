@@ -2,11 +2,11 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/3602c4be20d14be1b750db5a1875263a)](https://www.codacy.com/gh/lszeremeta/molstruct/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lszeremeta/molstruct&amp;utm_campaign=Badge_Grade) [![PyPI](https://img.shields.io/pypi/v/molstruct)](https://pypi.org/project/molstruct/) [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/lszeremeta/molstruct?label=Docker%20image%20size)](https://hub.docker.com/r/lszeremeta/molstruct)
 
-Molstruct is a lightweight Python CLI tool that converts chemical molecule data [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files to structured data formats - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://schema.org/docs/gs.html). Molstruct has a lot of customization options that you can but don't have to use. Python 3.2+ are supported and no dependencies are required. Sounds good so far? What would you say to a really tiny [Molstruct Docker container](https://hub.docker.com/r/lszeremeta/molstruct)? Just try Molstruct!
+Molstruct is a lightweight Python CLI tool that converts chemical molecule data [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files to structured data formats - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/), and [Microdata](https://schema.org/docs/gs.html). Molstruct has a lot of customization options that you can but don't have to use. Python 3.2+ is supported and no dependencies are required. Sounds good so far? What would you say to a really tiny [Molstruct Docker container](https://hub.docker.com/r/lszeremeta/molstruct)? Just try Molstruct!
 
-## What are structured data
+## What is structured data
 
-[Structured data](https://developers.google.com/search/docs/guides/intro-structured-data) are additional data placed on websites. They are not visible to ordinary internet users, but can be easily processed by machines. There are 3 formats that we can use to save structured data - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/) and [Microdata](https://www.w3.org/TR/microdata/). Molstruct supports them all and use [MolecularEntity profile](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/).
+[Structured data](https://developers.google.com/search/docs/guides/intro-structured-data) are additional data placed on websites. They are not visible to ordinary internet users but can be easily processed by machines. There are 3 formats that we can use to save structured data - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/), and [Microdata](https://www.w3.org/TR/microdata/). Molstruct supports them all and uses the [MolecularEntity profile](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/).
 
 ## Where to find a CSV file with molecule data
 
