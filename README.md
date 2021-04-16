@@ -22,9 +22,9 @@ Python 3.2 and above are supported. No additional dependencies are required. To 
 
 ## Docker image
 
-If you have [Docker](https://docs.docker.com/engine/install/) installed, you can use tiny Molstruct image from [Docker Hub](https://hub.docker.com/r/lszeremeta/molstruct).
+If you have [Docker](https://docs.docker.com/engine/install/) installed, you can use a tiny Molstruct image from [Docker Hub](https://hub.docker.com/r/lszeremeta/molstruct).
 
-Because the tool is closed inside the container, you have to [mount](https://docs.docker.com/storage/bind-mounts/#start-a-container-with-a-bind-mount) local directory with your input file. The default working directory of the image is `/app`. You need to mount your local directory inside it (e.g. `/app/input`):
+Because the tool is closed inside the container, you have to [mount](https://docs.docker.com/storage/bind-mounts/#start-a-container-with-a-bind-mount) the local directory with your input file. The default working directory of the image is `/app`. You need to mount your local directory inside it (e.g. `/app/input`):
 
 ```shell
 docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly lszeremeta/molstruct:latest
@@ -32,7 +32,7 @@ docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/inp
 
 In this case, the local directory `/home/user/input` has been mounted under `/app/input`.
 
-You can also simply mount current working directory using `$(pwd)` sub-command:
+You can also simply mount the current working directory using `$(pwd)` sub-command:
 
 ```shell
 docker run -it --rm --name molstruct-app --mount type=bind,source="$(pwd)",target=/app/input,readonly lszeremeta/molstruct:latest
@@ -71,7 +71,7 @@ git clone https://github.com/lszeremeta/molstruct.git
 
 If you don't want or can't use git, you can [download the zip archive](https://github.com/lszeremeta/molstruct/archive/master.zip) and extract it. 
 
-2. Go to the project directory and build Docker image:
+2. Go to the project directory and build a Docker image:
 
 ```shell
 cd molstruct
@@ -97,7 +97,7 @@ In this case, your local directory `/home/user/input` has been mounted under `/a
                      [-vd VALUE_DELIMITER] [-l LIMIT]
                      file
 
-Supported [MolecularEntity](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/) properties that corresponds to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below).
+Supported [MolecularEntity](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/) properties that correspond to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below).
 
 ### Informative arguments
 
@@ -109,7 +109,7 @@ Supported [MolecularEntity](https://bioschemas.org/profiles/MolecularEntity/0.5-
 * `-f {jsonldhtml,jsonld,rdfa,microdata}`, `--format {jsonldhtml,jsonld,rdfa,microdata}` output format
 * `file` CSV file path with molecule data to convert
 
-Remember about the appropriate file path when using Docker image. Suppose you mounted your local directory `/home/user/input` under `/app/input` and the path to the CSV file you want to use in molstruct is `/home/user/input/file.csv`. In this case, enter the path `/app/input/file.csv` or `input/file.csv` as `file` argument value.
+Remember about the appropriate file path when using the Docker image. Suppose you mounted your local directory `/home/user/input` under `/app/input` and the path to the CSV file you want to use in Molstruct is `/home/user/input/file.csv`. In this case, enter the path `/app/input/file.csv` or `input/file.csv` as `file` argument value.
 
 ### Column name change arguments
 
@@ -146,7 +146,7 @@ Available options may vary depending on the version. To display all available op
 
     molstruct -f rdfa data.csv
 
-Returns simple HTML with added RDFa. Assumes that the column names in CSV file are the default ones.
+Returns simple HTML with added RDFa. Assumes that the column names in the CSV file are the default ones.
 
     molstruct -f microdata -mf "formula" data.csv
 
@@ -158,17 +158,17 @@ Returns simple HTML with added Microdata. When generating a file, only selected 
 
     molstruct -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
 
-Do the same as example above but save results to `output.html`.
+Do the same as the example above but save results to `output.html`.
 
     docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly lszeremeta/molstruct:latest -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "input/drugbank vocabulary.csv" > output.html
 
-Do the same as example above (run from pre-build Docker image).
+Do the same as the example above (run from pre-built Docker image).
 
-Returns simple HTML with added [Microdata](https://www.w3.org/TR/microdata/) and redirect output to `molecules.html` file. Run from pre-build Docker image.
+Returns simple HTML with added [Microdata](https://www.w3.org/TR/microdata/) and redirects output to `molecules.html` file. Run from pre-build Docker image.
 
 ## Contribution
 
-Would you like to improve this project? Great! We are waiting for your help and suggestions. If you are new in open source contributions, read [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/).
+Would you like to improve this project? Great! We are waiting for your help and suggestions. If you are new to open source contributions, read [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/).
 
 ## License
 
