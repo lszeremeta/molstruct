@@ -14,14 +14,14 @@ There are many possibilities. The easiest way is to download a CSV file from one
 
 ## Quick start
 
-Use Molstruct in 3 easy steps. In this example, we will use the [DrugBank open dataset](https://www.drugbank.ca/releases/latest#open-data).
+Use Molstruct in 3 easy steps. In this example, we will use the [DrugBank open dataset](https://www.drugbank.ca/releases/latest#open-data). You need Python 3.2+ and pip installed.
 
 1. Open a terminal and install Molstruct
 
 You can install the Molstruct from [PyPI](https://pypi.org/project/molstruct/):
 
 ```shell
-    pip install molstruct
+pip install molstruct
 ```
 
 Molstruct is also available as a [Docker image](#docker-image). In most cases, installing Molstruct from PyPI or using Docker should be sufficient and convenient but you may want to [run Molstruct from sources or build a Docker image yourself](https://github.com/lszeremeta/molstruct/wiki/Run-from-sources-and-manual-Docker-build).
@@ -30,7 +30,7 @@ Molstruct is also available as a [Docker image](#docker-image). In most cases, i
 3. Molstruct has a [predefined preset](#predefined-presets) for this dataset. You just need to select the output format and enter the path to the CSV file. Assuming the `drugbank vocabulary.csv` file is in the current directory and the output format you're interested in is RDFa, the command will be as follows:
 
 ```shell
-    molstruct -p drugbank-open -f rdfa "drugbank vocabulary.csv" > drugbank_cc0_rdfa.html
+molstruct -p drugbank-open -f rdfa "drugbank vocabulary.csv" > drugbank_cc0_rdfa.html
 ```
 
 That's all. Now you have the RDFa file ready in the current directory. You can try other output formats and options as described below. You can also use Molstruct to convert other data in CSV format.
