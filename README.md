@@ -20,7 +20,7 @@ To make your work easier, Molstruct has built-in preset support. Thanks to this,
 
 Use Molstruct in 3 easy steps. In this example, we will use the [DrugBank open dataset](https://www.drugbank.ca/releases/latest#open-data).
 
-1. Open terminal and install Molstruct
+1. Open a terminal and install Molstruct
 
 You can install the Molstruct from [PyPI](https://pypi.org/project/molstruct/):
 
@@ -28,11 +28,11 @@ You can install the Molstruct from [PyPI](https://pypi.org/project/molstruct/):
     pip install molstruct
 ```
 
-Python 3.2 and above are supported. No additional dependencies are required. Molstruct is also available as a [Docker image](#docker-image).
+Molstruct is also available as a [Docker image](#docker-image).
 
 2. Download [DrugBank open dataset](https://www.drugbank.ca/releases/latest#open-data) in CSV format and unzip downloaded archive.
 
-3. Molstruct has a predefined preset for this dataset. So you just need to specify the output format and indicate the path to the uziped CSV file. Assuming the CSV file is in the current directory and the output format you're interested in is RDFa, the command will be as follows:
+3. Molstruct has a [predefined preset](#predefined-presets) for this dataset. You just need to select the output format and enter the path to the CSV file. Assuming the CSV file is in the current directory and the output format you're interested in is RDFa, the command will be as follows:
 
 ```shell
     molstruct -p drugbank-open -f rdfa "drugbank vocabulary.csv" > drugbank_cc0_rdfa.html
