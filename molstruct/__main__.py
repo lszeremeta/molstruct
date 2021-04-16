@@ -63,11 +63,12 @@ def main():
                               help="sameAs column name ('" + n.COLUMNS['sameAs'] + "' by default), URL")
 
     additional_settings = parser.add_argument_group('Additional settings arguments')
-    additional_settings.add_argument("-p", "--preset", choices=['drugbank-open'],
-                                     help="apply presets for individual CSV sources to avoid setting individual options manually ('drugbank-open' - DrugBank CC0 Open Data dataset)")
-    additional_settings.add_argument("-c", "--columns",
-                                     help="use only columns with renamed names",
-                                     action="store_true")
+    additional_exclusive = additional_settings.add_mutually_exclusive_group()
+    additional_exclusive.add_argument("-p", "--preset", choices=['drugbank-open'],
+                                      help="apply presets for individual CSV sources to avoid setting individual options manually ('drugbank-open' - DrugBank CC0 Open Data dataset)")
+    additional_exclusive.add_argument("-c", "--columns",
+                                      help="use only columns with renamed names; not available when using a preset",
+                                      action="store_true")
     additional_settings.add_argument("-s", "--subject", choices=['iri', 'uuid', 'bnode'], default='iri',
                                      help="molecule subject type ('iri' by default)")
     additional_settings.add_argument("-b", "--base", type=str,
@@ -80,12 +81,11 @@ def main():
 
     # set presets
     if args.preset == 'drugbank-open':
-        args.value_delimiter = ' | '
-        args.columns = True
-        args.identifier = 'CAS'
-        args.name = 'Common name'
-        args.inChIKey = 'Standard InChI Key'
-        args.alternateName = 'Synonyms'
+        n.VALUE_DELIMITER = ' | '
+        n.COLUMNS['identifier'] = 'CAS'
+        n.COLUMNS['name'] = 'Common name'
+        n.COLUMNS['inChIKey'] = 'Standard InChI Key'
+        n.COLUMNS['alternateName'] = 'Synonyms'
 
     # replace default base molecule IRI
     if args.base:

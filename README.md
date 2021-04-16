@@ -65,7 +65,7 @@ usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata} [-i IDEN
                  [-iu IUPACNAME] [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
                  [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
                  [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-an ALTERNATENAME]
-                 [-sa SAMEAS] [-p {drugbank-open}] [-c] [-s {iri,uuid,bnode}] [-b BASE]
+                 [-sa SAMEAS] [-p {drugbank-open} | -c] [-s {iri,uuid,bnode}] [-b BASE]
                  [-vd VALUE_DELIMITER] [-l LIMIT]
                  file
 ```
@@ -107,7 +107,7 @@ Arguments for changing the default column names
 ### Additional settings arguments
 
 * `-p {drugbank-open}`, `--preset {drugbank-open}` apply presets for individual CSV sources to avoid setting individual options manually ('drugbank-open' - [DrugBank CC0 Open Data dataset](https://go.drugbank.com/releases/latest#open-data))
-* `-c`, `--columns` use only columns with renamed names
+* `-c`, `--columns` use only columns with renamed names; not available when using a preset
 * `-s {iri,uuid,bnode}`, `--subject {iri,uuid,bnode}` molecule subject type ('iri' by default)
 * `-b BASE`, `--base BASE` molecule subject base for 'iri' subject type ('http://example.com/molecule#entity' by default)
 * `-vd VALUE_DELIMITER`, `--value-delimiter VALUE_DELIMITER` value delimiter (' | ' by default)
