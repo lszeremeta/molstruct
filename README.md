@@ -32,7 +32,7 @@ Molstruct is also available as a [Docker image](#docker-image).
 
 2. Download [DrugBank open dataset](https://www.drugbank.ca/releases/latest#open-data) in CSV format and unzip downloaded archive.
 
-3. Molstruct has a [predefined preset](#predefined-presets) for this dataset. You just need to select the output format and enter the path to the CSV file. Assuming the CSV file is in the current directory and the output format you're interested in is RDFa, the command will be as follows:
+3. Molstruct has a [predefined preset](#predefined-presets) for this dataset. You just need to select the output format and enter the path to the CSV file. Assuming the `drugbank vocabulary.csv` file is in the current directory and the output format you're interested in is RDFa, the command will be as follows:
 
 ```shell
     molstruct -p drugbank-open -f rdfa "drugbank vocabulary.csv" > drugbank_cc0_rdfa.html
