@@ -12,10 +12,6 @@ Molstruct is a lightweight Python CLI tool that converts chemical molecule data 
 
 There are many possibilities. The easiest way is to download a CSV file from one of the chemical databases, e.g. [DrugBank](https://www.drugbank.ca/releases/latest#open-data). You can also create the CSV file yourself.
 
-### Predefined presets
-
-To make your work easier, Molstruct has built-in preset support. Thanks to this, you do not have to set everything manually, you just select the appropriate preset and it's ready. The presets are flexible. If you want to change e.g. the column names selected for a preset, you can do so. At the moment you can use the [DrugBank open](https://www.drugbank.ca/releases/latest#open-data) preset. It is planned to add more in the future. Any suggestions are welcome!
-
 ## Quick start
 
 Use Molstruct in 3 easy steps. In this example, we will use the [DrugBank open dataset](https://www.drugbank.ca/releases/latest#open-data).
@@ -71,6 +67,20 @@ usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata} [-i IDEN
 ```
 
 Supported [MolecularEntity](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/) properties that correspond to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below). You can also use [presets](#predefined-presets).
+
+### Predefined presets
+
+To make your work easier, Molstruct has built-in preset support. Thanks to this, you do not have to set everything manually, you just select the appropriate preset and it's ready. The presets are flexible. If you want to change e.g. the column names selected for a preset, you can do so. At the moment you can use the [DrugBank open](https://www.drugbank.ca/releases/latest#open-data) preset. It is planned to add more in the future. Any suggestions are welcome!
+
+#### DrugBank Open (``drugbank-open``)
+
+Settings for the [open DrugBank dataset](https://www.drugbank.ca/releases/latest#open-data) in CSV file. The following settings are used for ``drugbank-open`` preset:
+
+* ``--value-delimiter`` is set to ' | '
+* ``--identifier`` is set to 'CAS'
+* ``--name`` is set to 'Common name'
+* ``--inChIKey`` is set to 'Standard InChI Key'
+* ``--alternateName`` is set to 'Synonyms'
 
 ### Informative arguments
 
