@@ -16,13 +16,29 @@ There are many possibilities. The easiest way is to download a CSV file from one
 
 To make your work easier, Molstruct has built-in preset support. Thanks to this, you do not have to set everything manually, you just select the appropriate preset and it's ready. The presets are flexible. If you want to change e.g. the column names selected for a preset, you can do so. At the moment you can use the [DrugBank open](https://www.drugbank.ca/releases/latest#open-data) preset. It is planned to add more in the future. Any suggestions are welcome!
 
-## Installation
+## Quick start
+
+Use Molstruct in 3 easy steps. In this example, we will use the [DrugBank open dataset](https://www.drugbank.ca/releases/latest#open-data).
+
+1. Open terminal and install Molstruct
 
 You can install the Molstruct from [PyPI](https://pypi.org/project/molstruct/):
 
+```shell
     pip install molstruct
+```
 
-Python 3.2 and above are supported. No additional dependencies are required. To use Molstruct just type the `molstruct` command in terminal.
+Python 3.2 and above are supported. No additional dependencies are required. Molstruct is also available as a [Docker image](#docker-image).
+
+2. Download [DrugBank open dataset](https://www.drugbank.ca/releases/latest#open-data) in CSV format and unzip downloaded archive.
+
+3. Molstruct has a predefined preset for this dataset. So you just need to specify the output format and indicate the path to the uziped CSV file. Assuming the CSV file is in the current directory and the output format you're interested in is RDFa, the command will be as follows:
+
+```shell
+    molstruct -p drugbank-open -f rdfa "drugbank vocabulary.csv" > drugbank_cc0_rdfa.html
+```
+
+That's all. Now you have the RDFa file ready in the current directory. You can try other output formats and options as described below. You can also use Molstruct to convert other data in CSV format.
 
 ## Docker image
 
@@ -42,7 +58,7 @@ You can also simply mount the current working directory using `$(pwd)` sub-comma
 docker run -it --rm --name molstruct-app --mount type=bind,source="$(pwd)",target=/app/input,readonly lszeremeta/molstruct:latest
 ```
 
-## Other options
+## Other ways to run Molstruct
 
 You may want to [run Molstruct from sources or build a Docker image yourself](https://github.com/lszeremeta/molstruct/wiki/Run-from-sources-and-manual-Docker-build). In most cases, one of the methods mentioned in the sections above should be sufficient and convenient for you.
 
@@ -57,7 +73,7 @@ You may want to [run Molstruct from sources or build a Docker image yourself](ht
                      [-vd VALUE_DELIMITER] [-l LIMIT]
                      file
 
-Supported [MolecularEntity](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/) properties that correspond to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below).
+Supported [MolecularEntity](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/) properties that correspond to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below). You can also use [presets](#predefined-presets).
 
 ### Informative arguments
 
