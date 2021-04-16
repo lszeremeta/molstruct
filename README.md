@@ -12,6 +12,10 @@ Molstruct is a lightweight Python CLI tool that converts chemical molecule data 
 
 There are many possibilities. The easiest way is to download a CSV file from one of the chemical databases, e.g. [DrugBank](https://www.drugbank.ca/releases/latest#open-data). You can also create the CSV file yourself.
 
+### Predefinied presets
+
+To make your work easier, Molstruct has built-in preset support. Thanks to this, you do not have to set everything manually, you just select the appropriate preset and it's ready. The presets are flexible. If you want to change e.g. the column names selected for a preset, you can do so. At the moment you can use the [DrugBank open](https://www.drugbank.ca/releases/latest#open-data) preset. It is planned to add more in the future. Any suggestions are welcome!
+
 ## Installation
 
 You can install the Molstruct from [PyPI](https://pypi.org/project/molstruct/):
