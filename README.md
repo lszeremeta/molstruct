@@ -125,7 +125,7 @@ Settings for the [open DrugBank dataset](https://www.drugbank.ca/releases/latest
 * `--inChIKey` is set to 'Standard InChI Key'
 * `--alternateName` is set to 'Synonyms'
 
-## Examples
+## Additional examples
 
 ```shell
 molstruct -f jsonldhtml data.csv
