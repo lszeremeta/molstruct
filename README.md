@@ -30,7 +30,7 @@ You can install the Molstruct from [PyPI](https://pypi.org/project/molstruct/):
 
 Molstruct is also available as a [Docker image](#docker-image). In most cases, installing Molstruct from PyPI or using Docker should be sufficient and convenient but you may want to [run Molstruct from sources or build a Docker image yourself](https://github.com/lszeremeta/molstruct/wiki/Run-from-sources-and-manual-Docker-build).
 
-2. Download [DrugBank open dataset](https://www.drugbank.ca/releases/latest#open-data) in CSV format and unzip downloaded archive.
+2. Download [DrugBank open dataset](https://go.drugbank.com/releases/latest/downloads/all-drugbank-vocabulary) in CSV format and unzip downloaded archive.
 3. Molstruct has a [predefined preset](#predefined-presets) for this dataset. You just need to select the output format and enter the path to the CSV file. Assuming the `drugbank vocabulary.csv` file is in the current directory and the output format you're interested in is RDFa, the command will be as follows:
 
 ```shell
