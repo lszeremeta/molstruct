@@ -44,51 +44,7 @@ docker run -it --rm --name molstruct-app --mount type=bind,source="$(pwd)",targe
 
 ## Other options
 
-You may want to run Molstruct from sources or build a Docker image yourself. In most cases, one of the methods mentioned in the sections above should be sufficient and convenient for you.
-
-### Run Molstruct from sources
-
-1. Clone this repository:
-
-```shell
-git clone https://github.com/lszeremeta/molstruct.git
-```
-
-If you don't want or can't use git, you can [download the zip archive](https://github.com/lszeremeta/molstruct/archive/master.zip) and extract it.
-
-2. Go to the project directory and run Molstruct:
-
-```shell
-cd molstruct
-python -m molstruct
-```
-
-### Local Docker build
-
-You need [Docker](https://docs.docker.com/engine/install/) installed.
-
-1. Clone this repository:
-
-```shell
-git clone https://github.com/lszeremeta/molstruct.git
-```
-
-If you don't want or can't use git, you can [download the zip archive](https://github.com/lszeremeta/molstruct/archive/master.zip) and extract it. 
-
-2. Go to the project directory and build a Docker image:
-
-```shell
-cd molstruct
-docker build -t molstruct .
-```
-
-3. Run Docker container:
-
-```shell
-docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly molstruct
-```
-
-In this case, your local directory `/home/user/input` has been mounted under `/app/input`.
+You may want to [run Molstruct from sources or build a Docker image yourself](https://github.com/lszeremeta/molstruct/wiki/Run-from-sources-and-manual-Docker-build). In most cases, one of the methods mentioned in the sections above should be sufficient and convenient for you.
 
 ## Usage
 
