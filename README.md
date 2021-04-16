@@ -31,7 +31,6 @@ You can install the Molstruct from [PyPI](https://pypi.org/project/molstruct/):
 Molstruct is also available as a [Docker image](#docker-image).
 
 2. Download [DrugBank open dataset](https://www.drugbank.ca/releases/latest#open-data) in CSV format and unzip downloaded archive.
-
 3. Molstruct has a [predefined preset](#predefined-presets) for this dataset. You just need to select the output format and enter the path to the CSV file. Assuming the `drugbank vocabulary.csv` file is in the current directory and the output format you're interested in is RDFa, the command will be as follows:
 
 ```shell
@@ -64,14 +63,16 @@ You may want to [run Molstruct from sources or build a Docker image yourself](ht
 
 ## Usage
 
-    usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata} [-i IDENTIFIER]
-                     [-n NAME] [-ink INCHIKEY] [-in INCHI] [-sm SMILES] [-u URL] [-iu IUPACNAME]
-                     [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
-                     [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
-                     [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-an ALTERNATENAME]
-                     [-sa SAMEAS] [-p {drugbank}] [-c] [-s {iri,uuid,bnode}] [-b BASE]
-                     [-vd VALUE_DELIMITER] [-l LIMIT]
-                     file
+```
+usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata} [-i IDENTIFIER]
+                 [-n NAME] [-ink INCHIKEY] [-in INCHI] [-sm SMILES] [-u URL]
+                 [-iu IUPACNAME] [-mf MOLECULARFORMULA] [-w MOLECULARWEIGHT]
+                 [-mw MONOISOTOPICMOLECULARWEIGHT] [-d DESCRIPTION]
+                 [-dd DISAMBIGUATINGDESCRIPTION] [-img IMAGE] [-an ALTERNATENAME]
+                 [-sa SAMEAS] [-p {drugbank-open}] [-c] [-s {iri,uuid,bnode}] [-b BASE]
+                 [-vd VALUE_DELIMITER] [-l LIMIT]
+                 file
+```
 
 Supported [MolecularEntity](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/) properties that correspond to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below). You can also use [presets](#predefined-presets).
 
@@ -120,23 +121,33 @@ Available options may vary depending on the version. To display all available op
 
 ## Examples
 
-    molstruct -f rdfa data.csv
+```shell
+molstruct -f rdfa data.csv
+```
 
 Returns simple HTML with added RDFa. Assumes that the column names in the CSV file are the default ones.
 
-    molstruct -f microdata -mf "formula" data.csv
+```shell
+molstruct -f microdata -mf "formula" data.csv
+```
 
 Returns simple HTML with added Microdata. Assumes that the column names in CSV file are the default ones but replaces default `molecularformula` column name by `formula`.
 
-    molstruct -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv"
+```shell
+molstruct -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv"
+```
 
 Returns simple HTML with added Microdata. When generating a file, only selected columns will be taken into account. A limit of 50 molecules has been specified.
 
-    molstruct -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
+```shell
+molstruct -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
+```
 
 Do the same as the example above but save results to `output.html`.
 
-    docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly lszeremeta/molstruct:latest -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "input/drugbank vocabulary.csv" > output.html
+```shell
+docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly lszeremeta/molstruct:latest -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "input/drugbank vocabulary.csv" > output.html
+```
 
 Do the same as the example above (run from pre-built Docker image).
 
