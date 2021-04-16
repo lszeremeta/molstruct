@@ -128,10 +128,10 @@ Settings for the [open DrugBank dataset](https://www.drugbank.ca/releases/latest
 ## Examples
 
 ```shell
-molstruct -f rdfa data.csv
+molstruct -f jsonldhtml data.csv
 ```
 
-Returns simple HTML with added RDFa. Assumes that the column names in the CSV file are the default ones.
+Returns simple HTML with added JSON-LD. Assumes that the column names in the CSV file are the default ones.
 
 ```shell
 molstruct -f microdata -mf "formula" data.csv
