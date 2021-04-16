@@ -68,20 +68,6 @@ usage: molstruct [-h] [--version] -f {jsonldhtml,jsonld,rdfa,microdata} [-i IDEN
 
 Supported [MolecularEntity](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/) properties that correspond to default CSV column names: `identifier`, `name`, `inChIKey`, `inChI`, `smiles`, `url`, `iupacName`, `molecularFormula`, `molecularWeight`, `monoisotopicMolecularWeight`, `description`, `disambiguatingDescription`, `image`, `alternateName` and `sameAs`. You can rename the columns if needed (see [Column name change arguments](#column-name-change-arguments) below). You can also use [presets](#predefined-presets).
 
-### Predefined presets
-
-To make your work easier, Molstruct has built-in preset support. Thanks to this, you do not have to set everything manually, you just select the appropriate preset and it's ready. The presets are flexible. If you want to change e.g. the column names selected for a preset, you can do so. At the moment you can use the [DrugBank open](https://www.drugbank.ca/releases/latest#open-data) preset. It is planned to add more in the future. Any suggestions are welcome!
-
-#### DrugBank Open (``drugbank-open``)
-
-Settings for the [open DrugBank dataset](https://www.drugbank.ca/releases/latest#open-data) in CSV file. The following settings are used for ``drugbank-open`` preset:
-
-* ``--value-delimiter`` is set to ' | '
-* ``--identifier`` is set to 'CAS'
-* ``--name`` is set to 'Common name'
-* ``--inChIKey`` is set to 'Standard InChI Key'
-* ``--alternateName`` is set to 'Synonyms'
-
 ### Informative arguments
 
 * `-h`, `--help` show help message and exit
@@ -116,7 +102,7 @@ Arguments for changing the default column names
 
 ### Additional settings arguments
 
-* `-p {drugbank-open}`, `--preset {drugbank-open}` apply presets for individual CSV sources to avoid setting individual options manually ('drugbank-open' - [DrugBank CC0 Open Data dataset](https://go.drugbank.com/releases/latest#open-data))
+* `-p {drugbank-open}`, `--preset {drugbank-open}` apply presets for individual CSV sources to avoid setting individual options manually (['drugbank-open'](#drugbank-open))
 * `-c`, `--columns` use only columns with renamed names; not available when using a preset
 * `-s {iri,uuid,bnode}`, `--subject {iri,uuid,bnode}` molecule subject type ('iri' by default)
 * `-b BASE`, `--base BASE` molecule subject base for 'iri' subject type ('http://example.com/molecule#entity' by default)
@@ -124,6 +110,20 @@ Arguments for changing the default column names
 * `-l LIMIT`, `--limit LIMIT` maximum number of results (unlimited by default)
 
 Available options may vary depending on the version. To display all available options with their descriptions use ``molstruct -h``.
+
+## Predefined presets
+
+To make your work easier, Molstruct has built-in preset support. Thanks to this, you do not have to set everything manually, you just select the appropriate preset and it's ready. The presets are flexible. If you want to change e.g. the column names selected for a preset, you can do so. At the moment you can use the [DrugBank open](https://www.drugbank.ca/releases/latest#open-data) preset. It is planned to add more in the future. Any suggestions are welcome!
+
+### ``drugbank-open``
+
+Settings for the [open DrugBank dataset](https://www.drugbank.ca/releases/latest#open-data) in CSV file. The following settings are used for ``drugbank-open`` preset:
+
+* ``--value-delimiter`` is set to ' | '
+* ``--identifier`` is set to 'CAS'
+* ``--name`` is set to 'Common name'
+* ``--inChIKey`` is set to 'Standard InChI Key'
+* ``--alternateName`` is set to 'Synonyms'
 
 ## Examples
 
