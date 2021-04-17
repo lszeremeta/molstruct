@@ -6,7 +6,7 @@ Molstruct is a lightweight Python CLI tool that converts chemical molecule data 
 
 ## What is structured data
 
-[Structured data](https://developers.google.com/search/docs/guides/intro-structured-data) are additional data placed on websites. They are not visible to ordinary internet users but can be easily processed by machines. There are 3 formats that we can use to save structured data - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/), and [Microdata](https://www.w3.org/TR/microdata/). Molstruct supports them all and uses the [MolecularEntity profile](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/).
+[Structured data](https://developers.google.com/search/docs/guides/intro-structured-data) is additional data placed on websites. It is not visible to ordinary internet users but can be easily processed by machines. There are 3 formats that we can use to save structured data - [JSON-LD](https://json-ld.org/), [RDFa](http://rdfa.info/), and [Microdata](https://www.w3.org/TR/microdata/). Molstruct supports them all and uses the [MolecularEntity profile](https://bioschemas.org/profiles/MolecularEntity/0.5-RELEASE/).
 
 ## Where to find a CSV file with molecule data
 
@@ -113,7 +113,7 @@ Available options may vary depending on the version. To display all available op
 
 ## Predefined presets
 
-To make your work easier, Molstruct has built-in preset support. Thanks to this, you do not have to set everything manually, you just select the appropriate preset and it's ready. The presets are flexible. If you want to change e.g. the column names selected for a preset, you can do so. At the moment you can use the [DrugBank open](https://www.drugbank.ca/releases/latest#open-data) preset. It is planned to add more in the future. Any suggestions are welcome!
+To make your work easier, Molstruct has built-in preset support. Thanks to this, you do not have to set everything manually, you just select the appropriate preset and it's ready. The presets are flexible. If you want to change e.g. the column names selected for a preset, you can do so. At the moment you can use the [DrugBank open](https://www.drugbank.ca/releases/latest#open-data) preset. There are plans to add more in the future. Any suggestions are welcome!
 
 ### `drugbank-open`
 
@@ -149,13 +149,13 @@ Returns simple HTML with added Microdata. When generating a file, only selected 
 molstruct -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "drugbank vocabulary.csv" > output.html
 ```
 
-Do the same as the example above but save results to `output.html`.
+Does the same as the example above but save results to `output.html`.
 
 ```shell
 docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly lszeremeta/molstruct:latest -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "input/drugbank vocabulary.csv" > output.html
 ```
 
-Do the same as the example above (run from pre-built Docker image).
+Does the same as the example above (run from pre-built Docker image).
 
 Returns simple HTML with added [Microdata](https://www.w3.org/TR/microdata/) and redirects output to `molecules.html` file. Run from pre-build Docker image.
 
