@@ -48,7 +48,7 @@ def jsonld(reader, limit):
       "http://schema.org/creator": {
         "@id": "https://github.com/lszeremeta/molstruct"
       },
-      "http://schema.org/temporal": ''' + str(datetime.datetime.today().year) + ''',
+      "http://schema.org/temporal": "''' + str(datetime.datetime.today().year) + '''",
       "http://schema.org/url": "https://github.com/lszeremeta/molstruct"
     },'''
     for row in reader:
