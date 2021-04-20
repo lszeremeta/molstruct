@@ -7,19 +7,19 @@ import uuid
 import molstruct.names as n
 
 
-def jsonldhtml(reader, limit):
+def jsonldhtml(reader, limit=None):
     print('''<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Example Document</title>
     <script type="application/ld+json">''')
-    jsonld(reader, limit)
+    jsonld(reader, limit=None)
     print('''    </script>
   </head>
 </html>''')
 
 
-def jsonld(reader, limit):
+def jsonld(reader, limit=None):
     i = 0
 
     out_str = '{\n'
@@ -128,7 +128,7 @@ def jsonld(reader, limit):
 }''')
 
 
-def rdfa(reader, limit):
+def rdfa(reader, limit=None):
     i = 0
     print('''<!DOCTYPE html>
 <html lang="en">
@@ -187,7 +187,7 @@ def rdfa(reader, limit):
     print('</html>')
 
 
-def microdata(reader, limit):
+def microdata(reader, limit=None):
     i = 0
     print('''<!DOCTYPE html>
 <html lang="en">

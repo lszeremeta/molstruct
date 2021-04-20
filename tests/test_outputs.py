@@ -139,3 +139,162 @@ def test_create_microdata_text_exceeded_limit_name(capsys, csv_reader):
     stdout, stderr = capsys.readouterr()
     assert stderr == ""
     assert text in stdout
+
+
+def test_multiple_values_jsonld(capsys, csv_reader):
+    """Check if multiple values are supported in JSON-LD"""
+    text = '["Hirudin variant-1", "Lepirudin recombinant"]'
+    n.COLUMNS['alternateName'] = "Synonyms"
+
+    outputs.jsonld(csv_reader, 1)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert text in stdout
+
+
+def test_multiple_values_rdfa(capsys, csv_reader):
+    """Check if multiple values support in RDFa"""
+    text = 'property="schema:alternateName"'
+    n.COLUMNS['alternateName'] = "Synonyms"
+
+    outputs.rdfa(csv_reader, 1)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert stdout.count(text) > 1
+
+
+def test_multiple_values_microdata(capsys, csv_reader):
+    """Check if multiple values support in Microdata"""
+    text = 'itemprop="alternateName"'
+    n.COLUMNS['alternateName'] = "Synonyms"
+
+    outputs.microdata(csv_reader, 1)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert stdout.count(text) > 1
+
+
+def test_jsonld_iri_no_id(capsys, csv_reader):
+    """Check if JSON-LD output have IRI for IRI subject type without id"""
+    text = 'http://example.com/molecule0'
+    text2 = 'id="'
+    n.COLUMNS['identifier'] = "CAS"
+    n.SUBJECT_BASE = "http://example.com/molecule"
+
+    outputs.jsonld(csv_reader)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert text in stdout
+    assert text2 not in stdout
+
+
+def test_rdfa_iri_id(capsys, csv_reader):
+    """Check if RDFa output have IRI for IRI subject type with id"""
+    text = 'about="http://example.com/molecule#m1"'
+    text2 = 'id="m1"'
+    n.COLUMNS['name'] = "Common name"
+    n.SUBJECT_BASE = "http://example.com/molecule#m"
+
+    outputs.rdfa(csv_reader)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert text in stdout
+    assert text2 in stdout
+
+
+def test_microdata_iri_no_id(capsys, csv_reader):
+    """Check if Microdata output have IRI for IRI subject type without id"""
+    text = 'itemid="http://example-molecules.com/example2"'
+    text2 = ' id="'
+    n.COLUMNS['alternateName'] = "Synonyms"
+    n.SUBJECT_BASE = "http://example-molecules.com/example"
+
+    outputs.microdata(csv_reader)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert text in stdout
+    assert text2 not in stdout
+
+
+def test_jsonld_uuid(capsys, csv_reader):
+    """Check if JSON-LD output have urn:uuid: for UUID subject type"""
+    text = '"urn:uuid:'
+    n.COLUMNS['alternateName'] = "Synonyms"
+    n.SUBJECT_BASE = False
+
+    outputs.jsonld(csv_reader)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert text in stdout
+
+
+def test_rdfa_uuid(capsys, csv_reader):
+    """Check if RDFa output have urn:uuid: for UUID subject type"""
+    text = 'about="urn:uuid:'
+    n.COLUMNS['identifier'] = "CAS"
+    n.SUBJECT_BASE = False
+
+    outputs.rdfa(csv_reader)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert text in stdout
+
+
+def test_microdata_uuid(capsys, csv_reader):
+    """Check if Microdata output have urn:uuid: for UUID subject type"""
+    text = 'itemid="urn:uuid:'
+    n.COLUMNS['name'] = "Common name"
+    n.SUBJECT_BASE = False
+
+    outputs.microdata(csv_reader)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert text in stdout
+
+
+def test_jsonld_bnode(capsys, csv_reader):
+    """Check if JSON-LD output have bnode for bdnode subject type"""
+    text = '_:b1'
+    n.COLUMNS['name'] = "Common name"
+    n.SUBJECT_BASE = '_:b'
+
+    outputs.jsonld(csv_reader)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert text in stdout
+
+
+def test_rdfa_bnode(capsys, csv_reader):
+    """Check if RDFa output have bnode for bode subject type"""
+    text = '_:b0'
+    n.COLUMNS['identifier'] = "CAS"
+    n.SUBJECT_BASE = '_:b'
+
+    outputs.rdfa(csv_reader)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert text in stdout
+
+
+def test_microdata_bnode(capsys, csv_reader):
+    """Check if Microdata output have bnode for bnode subject type"""
+    text = '_:b2'
+    n.COLUMNS['alternateName'] = "Synonyms"
+    n.SUBJECT_BASE = '_:b'
+
+    outputs.microdata(csv_reader)
+
+    stdout, stderr = capsys.readouterr()
+    assert stderr == ""
+    assert text in stdout
