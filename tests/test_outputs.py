@@ -142,7 +142,7 @@ def test_create_microdata_text_exceeded_limit_name(capsys, csv_reader):
 
 
 def test_multiple_values_jsonld(capsys, csv_reader):
-    """Check if multiple values are supported in JSON-LD"""
+    """Check if multiple values are supported in JSON-LD."""
     text = '["Hirudin variant-1", "Lepirudin recombinant"]'
     n.COLUMNS['alternateName'] = "Synonyms"
 
@@ -154,7 +154,7 @@ def test_multiple_values_jsonld(capsys, csv_reader):
 
 
 def test_multiple_values_rdfa(capsys, csv_reader):
-    """Check if multiple values support in RDFa"""
+    """Check if multiple values support in RDFa."""
     text = 'property="schema:alternateName"'
     n.COLUMNS['alternateName'] = "Synonyms"
 
@@ -166,7 +166,7 @@ def test_multiple_values_rdfa(capsys, csv_reader):
 
 
 def test_multiple_values_microdata(capsys, csv_reader):
-    """Check if multiple values support in Microdata"""
+    """Check if multiple values support in Microdata."""
     text = 'itemprop="alternateName"'
     n.COLUMNS['alternateName'] = "Synonyms"
 
@@ -178,7 +178,7 @@ def test_multiple_values_microdata(capsys, csv_reader):
 
 
 def test_jsonld_iri_no_id(capsys, csv_reader):
-    """Check if JSON-LD output have IRI for IRI subject type without id"""
+    """Check if JSON-LD output have IRI for IRI subject type without id."""
     text = 'http://example.com/molecule0'
     text2 = 'id="'
     n.COLUMNS['identifier'] = "CAS"
@@ -193,7 +193,7 @@ def test_jsonld_iri_no_id(capsys, csv_reader):
 
 
 def test_rdfa_iri_id(capsys, csv_reader):
-    """Check if RDFa output have IRI for IRI subject type with id"""
+    """Check if RDFa output have IRI for IRI subject type with id."""
     text = 'about="http://example.com/molecule#m1"'
     text2 = 'id="m1"'
     n.COLUMNS['name'] = "Common name"
@@ -208,7 +208,7 @@ def test_rdfa_iri_id(capsys, csv_reader):
 
 
 def test_microdata_iri_no_id(capsys, csv_reader):
-    """Check if Microdata output have IRI for IRI subject type without id"""
+    """Check if Microdata output have IRI for IRI subject type without id."""
     text = 'itemid="http://example-molecules.com/example2"'
     text2 = ' id="'
     n.COLUMNS['alternateName'] = "Synonyms"
@@ -223,7 +223,7 @@ def test_microdata_iri_no_id(capsys, csv_reader):
 
 
 def test_jsonld_uuid(capsys, csv_reader):
-    """Check if JSON-LD output have urn:uuid: for UUID subject type"""
+    """Check if JSON-LD output have urn:uuid: for UUID subject type."""
     text = '"urn:uuid:'
     n.COLUMNS['alternateName'] = "Synonyms"
     n.SUBJECT_BASE = False
@@ -236,7 +236,7 @@ def test_jsonld_uuid(capsys, csv_reader):
 
 
 def test_rdfa_uuid(capsys, csv_reader):
-    """Check if RDFa output have urn:uuid: for UUID subject type"""
+    """Check if RDFa output have urn:uuid: for UUID subject type."""
     text = 'about="urn:uuid:'
     n.COLUMNS['identifier'] = "CAS"
     n.SUBJECT_BASE = False
@@ -249,7 +249,7 @@ def test_rdfa_uuid(capsys, csv_reader):
 
 
 def test_microdata_uuid(capsys, csv_reader):
-    """Check if Microdata output have urn:uuid: for UUID subject type"""
+    """Check if Microdata output have urn:uuid: for UUID subject type."""
     text = 'itemid="urn:uuid:'
     n.COLUMNS['name'] = "Common name"
     n.SUBJECT_BASE = False
@@ -262,7 +262,7 @@ def test_microdata_uuid(capsys, csv_reader):
 
 
 def test_jsonld_bnode(capsys, csv_reader):
-    """Check if JSON-LD output have bnode for bdnode subject type"""
+    """Check if JSON-LD output have bnode for bdnode subject type."""
     text = '_:b1'
     n.COLUMNS['name'] = "Common name"
     n.SUBJECT_BASE = '_:b'
@@ -275,7 +275,7 @@ def test_jsonld_bnode(capsys, csv_reader):
 
 
 def test_rdfa_bnode(capsys, csv_reader):
-    """Check if RDFa output have bnode for bode subject type"""
+    """Check if RDFa output have bnode for bode subject type."""
     text = '_:b0'
     n.COLUMNS['identifier'] = "CAS"
     n.SUBJECT_BASE = '_:b'
@@ -288,7 +288,7 @@ def test_rdfa_bnode(capsys, csv_reader):
 
 
 def test_microdata_bnode(capsys, csv_reader):
-    """Check if Microdata output have bnode for bnode subject type"""
+    """Check if Microdata output have bnode for bnode subject type."""
     text = '_:b2'
     n.COLUMNS['alternateName'] = "Synonyms"
     n.SUBJECT_BASE = '_:b'
