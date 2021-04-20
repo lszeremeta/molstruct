@@ -1,6 +1,6 @@
 ---
 name: New preset suggestion
-about: Suggest new preset
+about: Suggest a new preset
 title: ''
 labels: enhancement
 assignees: ''
@@ -16,7 +16,7 @@ Provide your preferred method of mapping the column names in the CSV file to the
 **Value delimiter**
 Value delimiter for this file (see --value-delimiter option).
 
-**Present name**
+**Preset name**
 Suggested preset name
 
 **Additional context**
