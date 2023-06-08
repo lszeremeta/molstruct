@@ -42,7 +42,7 @@ If you have [Docker](https://docs.docker.com/engine/install/) installed, you can
 Because the tool is closed inside the container, you have to [mount](https://docs.docker.com/storage/bind-mounts/#start-a-container-with-a-bind-mount) the local directory with your input file. The default working directory of the image is `/app`. You need to mount your local directory inside it (e.g. `/app/input`):
 
 ```shell
-docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly lszeremeta/molstruct:latest
+docker run --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly lszeremeta/molstruct:latest
 ```
 
 In this case, the local directory `/home/user/input` has been mounted under `/app/input`.
@@ -50,7 +50,7 @@ In this case, the local directory `/home/user/input` has been mounted under `/ap
 You can also simply mount the current working directory using `$(pwd)` sub-command:
 
 ```shell
-docker run -it --rm --name molstruct-app --mount type=bind,source="$(pwd)",target=/app/input,readonly lszeremeta/molstruct:latest
+docker run --rm --name molstruct-app --mount type=bind,source="$(pwd)",target=/app/input,readonly lszeremeta/molstruct:latest
 ```
 
 ## Usage
@@ -152,7 +152,7 @@ molstruct -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Sta
 Does the same as the example above but saves results to `output.html`.
 
 ```shell
-docker run -it --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly lszeremeta/molstruct:latest -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "input/drugbank vocabulary.csv" > output.html
+docker run --rm --name molstruct-app --mount type=bind,source=/home/user/input,target=/app/input,readonly lszeremeta/molstruct:latest -f microdata --columns --id "CAS" --name "Common name" --inChIKey "Standard InChI Key" --limit 50 "input/drugbank vocabulary.csv" > output.html
 ```
 
 Does the same as the example above (run from pre-built Docker image).
