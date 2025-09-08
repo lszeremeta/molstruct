@@ -61,7 +61,7 @@ jobs:
         run: |
           python setup.py sdist bdist_wheel
       - name: Wait for concurrent jobs
-        uses: softprops/turnstyle@v2
+        uses: softprops/turnstyle@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create pre-release
@@ -83,7 +83,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Wait for concurrent jobs
-        uses: softprops/turnstyle@v2
+        uses: softprops/turnstyle@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Prepare
